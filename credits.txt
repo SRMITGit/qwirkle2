@@ -1,0 +1,12 @@
+Name: Philip Beeby
+Email: s3666628@student.rmit.edu.au
+Student ID: s3666628
+Name: Guy Leighton
+Student ID: s3587205
+Email: s3587205@student.rmit.edu.au
+Name: Stephen Patrikios
+Student ID: s3852734
+Email: s3852734@student.rmit.edu.au
+Name: Gordon Richard
+Student ID: s3831786
+Email: s3831786@student.rmit.edu.au
