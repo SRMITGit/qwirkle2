@@ -1,21 +1,19 @@
-#include <string>
 #include <iostream>
+#include <string>
 
-#define ARRAY_SIZE 108
+#define ARRAY_SIZE 72
 
-class loadGame
-{
+class loadGame {
 public:
-    loadGame();
+  loadGame();
+  ~loadGame();
+  
+  void readFile();
 
-    ~loadGame();
-    void readFile();
-
-    char getArrBag(int num);
+  char getArrBag(int num);
 
 private:
-    std::string read;
-    std::string fileName;
-    char arrBag[ARRAY_SIZE];
-
+  std::string read;
+  std::string fileName;
+  char arrBag[ARRAY_SIZE];
 };

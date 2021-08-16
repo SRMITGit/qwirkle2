@@ -1,5 +1,5 @@
-#ifndef ASSIGN2_EMOJI_H
-#define ASSIGN2_EMOJI_H
+#ifndef ASSIGN2_TILEEMOJI_H
+#define ASSIGN2_TILEEMOJI_H
 
 // Sources to make Terminal Colours
 // https://stackoverflow.com/questions/9158150/colored-output-in-c
@@ -9,24 +9,6 @@
 // source: https://github.com/99x/emojicpp
 // https://www.sololearn.com/Discuss/2178679/how-to-print-emoji-shapes-in-console-output-screen-in-c-c-language
 // https://emojipedia.org/shortcodes/
-
-// Resets everything back to the standard colour.
-#define RESET_COLOUR "\033[0m"
-// Text Colours
-#define BLACK_TEXT "\033[30m"
-#define RED_TEXT "\033[31m"
-#define GREEN_TEXT "\033[32m"
-#define YELLOW_TEXT "\033[33m"
-#define BLUE_TEXT "\033[34m"
-#define MAGENTA_TEXT "\033[35m"
-#define CYAN_TEXT "\033[36m"
-#define WHITE_TEXT "\033[37m"
-// Background Colours
-#define BLACK_BACKGROUND "\033[40m"
-#define RED_BACKGROUND "\033[41m"
-#define YELLOW_BACKGROUND "\033[43m"
-#define BLUE_BACKGROUND "\033[44m"
-#define MAGENTA_BACKGROUND "\033[45m"
 
 // Emoji
 /* Basically find the Unicode for the emoji you want to use
@@ -48,4 +30,43 @@ Put backslash before "U" and three zeros after "U".
 #define KANGAROO "\U0001F998"
 #define FIRE "\U0001F525"
 
-#endif // ASSIGN2_EMOJI_H
+class Emoji {
+public:
+  Emoji();
+  // Copy constructor
+  Emoji(Emoji &other);
+  // Move constructor
+  Emoji(Emoji &&other);
+  // Deconstructor
+  ~Emoji();
+
+  void tileEmoji();
+
+
+
+  Emoji getEmojiList();
+  int getNumber();
+  int size();
+  int mainEmoji();
+
+  Emoji *get(int index);
+  void add(Emoji *emojiList);
+  void add(Emoji *emojiList, int index);
+  void remove(int index);
+
+  void selectionEmoji();
+  void clear();
+  void quit();
+  // void newGame();
+
+private:
+  Emoji *colour;
+  int *number;
+  // std::vector<Emoji *> emojiList;
+};
+
+
+
+
+
+#endif // ASSIGN2_TILEEMOJI_H

@@ -100,16 +100,13 @@ void Board::display() {
 //         //  board[outLoopCounter][innLoopCounter] << std::endl;
 //         std::cout << "|B|";
 //         innLoopCounter +=1;
-   
 
 //       } else {
 //         std::cout << "| " << board[outLoopCounter][innLoopCounter] << " |";
 //         innLoopCounter +=1;
 //       }
 
-      
 //         // std::cout << std::endl;
-
 
 //     }
 
@@ -124,57 +121,50 @@ void Board::display() {
 
 // }
 
-void Board::displayBoard()
-{
-    // Helper function takes an Env type (2D Char Array) and prints it out to the console
-    // rows first then columns
+void Board::displayBoard() {
+  // Helper function takes an Env type (2D Char Array) and prints it out to the
+  // console rows first then columns
 
-    std::cout << "Printing Updated Board " << std::endl;
-    int row_counter = 0;
-    int head_row_counter = 1;
-    // print out the header row
-    std::cout << " ";
-    while(head_row_counter < (int)board.size()){
-      if (head_row_counter < 11){
-            std::cout  << " |" << head_row_counter;
-            head_row_counter = head_row_counter + 1;
-      }
-      else{
-            std::cout  << "|" << head_row_counter;
-            head_row_counter = head_row_counter + 1;
-
-      }
- 
+  std::cout << "Printing Updated Board " << std::endl;
+  int row_counter = 0;
+  int head_row_counter = 1;
+  // print out the header row
+  std::cout << " ";
+  while (head_row_counter < (int)board.size()) {
+    if (head_row_counter < 11) {
+      std::cout << " |" << head_row_counter;
+      head_row_counter = head_row_counter + 1;
+    } else {
+      std::cout << "|" << head_row_counter;
+      head_row_counter = head_row_counter + 1;
     }
+  }
+  std::cout << std::endl;
+  char row_char = 'A';
+
+  while (row_counter < (int)board.size()) {
+    // reset colum counter before each run
+    int col_counter = 0;
+    std::cout << row_char << " ";
+    row_char = row_char + 1;
+
+    while (col_counter < (int)board.size()) {
+      if (board[row_counter][col_counter] == nullptr) {
+
+        std::cout << "|  ";
+        col_counter = col_counter + 1;
+      }
+
+      else {
+        std::cout << "|" << board[row_counter][col_counter]->getTileColour()
+                  << board[row_counter][col_counter]->getTileShape();
+        col_counter = col_counter + 1;
+      }
+    }
+    // add a carriage return after printing out the row
     std::cout << std::endl;
-    char row_char = 'A';
-
-    while (row_counter < (int)board.size())
-    {
-        // reset colum counter before each run
-        int col_counter = 0;
-        std::cout << row_char << " ";
-        row_char = row_char +1;
-
-        while (col_counter < (int)board.size())
-        {   
-            if (board[row_counter][col_counter] == nullptr){
-
-           
-            std::cout << "|  ";
-            col_counter = col_counter + 1;
-            }
-            
-            else{
-            std::cout << "|" << board[row_counter][col_counter]->getTileColour() << board[row_counter][col_counter]->getTileShape() ;
-            col_counter = col_counter + 1;
-            }
-     
-        }
-        // add a carriage return after printing out the row
-        std::cout << std::endl;
-        row_counter = row_counter + 1;
-    }
+    row_counter = row_counter + 1;
+  }
 }
 
 std::string Board::toString() {
@@ -197,9 +187,7 @@ std::string Board::toString() {
   }
   return output;
 }
-int Board::getSize() { 
-  
-  return board.size(); }
+int Board::getSize() { return board.size(); }
 
 Tile *Board::getTile(int row, int col) {
   Tile *tile = nullptr;

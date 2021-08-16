@@ -2,9 +2,15 @@
 #include <string>
 #include <vector>
 
-#include "emoji.h"
+#include "tileColours.h"
+#include "tileEmoji.h"
 
-int main() {
+Colours::Colours() {}
+Colours::~Colours() {}
+Emoji::Emoji() {}
+Emoji::~Emoji() {}
+
+void Colours::tileColours() {
   // Declaring Vector of String type
   // Values can be added here using initialise-list syntax
   std::vector<std::string> menuList{"1.New Game", "2. Load Game", "3. Credits",
@@ -23,7 +29,9 @@ int main() {
             << RESET_COLOUR << std::endl;
   std::cout << BLUE_TEXT << menuList[2] << RESET_COLOUR << std::endl;
   std::cout << RED_BACKGROUND << menuList[3] << RESET_COLOUR << std::endl;
+};
 
+void Emoji::tileEmoji() {
   std::cout << LARGE_BLUE_CIRCLE << std::endl;
   std::cout << RED_CIRCLE << RESET_COLOUR << std::endl;
   std::cout << BLACK_CIRCLE << RESET_COLOUR << std::endl;

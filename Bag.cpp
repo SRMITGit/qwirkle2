@@ -1,58 +1,58 @@
-//
-// Bag.cpp
-// Creates a bag which is used to hold tiles which are than taken from the Bag and placed in the players hand
-//
+/* Bag.cpp
+Creates a bag which is used to hold tiles which are than taken from the Bag
+and placed in the players hand
+ */
 
 #include "Bag.h"
-#include "loadGame.h"
-#include <iostream>
 #include "Tile.h"
 #include "TileCodes.h"
+#include "loadGame.h"
+#include <iostream>
 #include <random>
 
 #define MAX_BAG_TILES 72
 
 Bag::Bag() {
   // constructor for a new bag of tiles
-  this -> gameBag = new LinkedList();
+  this->gameBag = new LinkedList();
 }
 
 Bag::~Bag() {
   // destructor
-  std::cout << "Calling Bag Destructor - Deleting Bag Object and Attributes: " << std::endl;
+  std::cout << "Calling Bag Destructor - Deleting Bag Object and Attributes: "
+            << std::endl;
   delete gameBag;
 }
 
-void Bag::addTilesToBag(Bag * gameBag) {
+void Bag::addTilesToBag(Bag *gameBag) {
   // add all of the starting tiles to the bag
   int counter = 0;
   // loop to add tiles to the bag
   while (counter < MAX_BAG_TILES) {
-    Tile * randomTile = new Tile(randomColour(), randomShape());
-    // std::cout << "Adding Tile Numer: " << counter << " to the bag: " << std::endl;
-    gameBag -> addFront(randomTile);
+    Tile *randomTile = new Tile(randomColour(), randomShape());
+    // std::cout << "Adding Tile Numer: " << counter << " to the bag: " <<
+    // std::endl;
+    gameBag->addFront(randomTile);
     ++counter;
   }
-  std::cout << "Bag is full, total Tiles in the bag:  " << gameBag->listSize() << std::endl;
+  std::cout << "Bag is full, total Tiles in the bag:  " << gameBag->listSize()
+            << std::endl;
 }
 
-//Created by Guy - trying to create a bag not randomly generated.
-void Bag::loadGameTileBag(Bag * gameBag)
-{
+// Created by Guy - trying to create a bag not randomly generated.
+void Bag::loadGameTileBag(Bag *gameBag) {
   loadGame loadGame;
-  int counter = 0;//will need to count how many tile have already left the bag
+  int counter = 0; // will need to count how many tile have already left the bag
   int counter2 = 0;
   int counter3 = 0;
 
-  //loop and add tiles to the bag
-  while (counter < MAX_BAG_TILES)
-  {
-    for (int i = 0; i < 1; i++)
-    {
-      for (int j = 0; j < 1; j++)
-      {
-        Tile * loadTile = new Tile(loadGame.getArrBag(counter2), loadGame.getArrBag(counter3));
-        gameBag -> addFront(loadTile);
+  // loop and add tiles to the bag
+  while (counter < MAX_BAG_TILES) {
+    for (int i = 0; i < 1; i++) {
+      for (int j = 0; j < 1; j++) {
+        Tile *loadTile = new Tile(loadGame.getArrBag(counter2),
+                                  loadGame.getArrBag(counter3));
+        gameBag->addFront(loadTile);
         counter++;
         counter3++;
       }
@@ -68,7 +68,7 @@ Colour Bag::randomColour() {
   int min = 1;
   int max = 6;
   std::random_device engine;
-  std::uniform_int_distribution < int > uniform_dist(min, max);
+  std::uniform_int_distribution<int> uniform_dist(min, max);
   colourValue = uniform_dist(engine);
   // random Colour
   if (colourValue == (1)) {
@@ -96,7 +96,7 @@ Shape Bag::randomShape() {
   int min = 1;
   int max = 6;
   std::random_device engine;
-  std::uniform_int_distribution < int > uniform_dist(min, max);
+  std::uniform_int_distribution<int> uniform_dist(min, max);
   shapeValue = uniform_dist(engine);
   // random shape
   if (shapeValue == (1)) {

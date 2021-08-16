@@ -6,38 +6,37 @@
 
 #include <ostream>
 
-class Player
-{
+class Player {
 
 public:
-    std::string name;
-    int score;
-    LinkedList *hand;
+  std::string name;
+  int score;
+  LinkedList *hand;
 
-    Player(std::string name);
+  Player(std::string name);
 
-    Player(std::string name, LinkedList *hand);
+  Player(std::string name, LinkedList *hand);
 
-    ~Player();
-    // to return name stored in string type
-    std::string getPlayerName();
-    // to return memory address of string name
-    std::string *getPlayerNamePtr();
-    bool setName(std::string &playerName);
+  ~Player();
+  // to return name stored in string type
+  std::string getPlayerName();
+  // to return memory address of string name
+  std::string *getPlayerNamePtr();
+  bool setName(std::string &playerName);
 
-    void setPlayerScore(int score);
+  void setPlayerScore(int score);
 
-    void addPlayerScore(int score);
+  void addPlayerScore(int score);
 
-    void setPlayerHand(LinkedList *hand);
+  void setPlayerHand(LinkedList *hand);
 
-    void printPlayerHand();
+  void printPlayerHand();
 
-    LinkedList *getPlayerHand();
+  LinkedList *getPlayerHand();
 
-    // to return player score stored in int type
-    int getPlayerScore();
+  // to return player score stored in int type
+  int getPlayerScore();
 
-    // to return memory address of player score
-    int *getPlayerScorePtr();
+  // to return memory address of player score
+  int *getPlayerScorePtr();
 };
