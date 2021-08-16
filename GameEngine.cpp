@@ -6,6 +6,7 @@
 //
 
 #include "GameEngine.h"
+#include "Bag.h"
 #include "board.h"
 #include <iostream>
 #include <string>
@@ -62,12 +63,12 @@ GameEngine::GameEngine(Player player1, Player player2) {
     int tileNumber = 0;
     int rowNumber = 0;
     int colNumber = 0;
-    std::cout << "please select a tile from your hand " << std::endl;
+    std::cout << "Please select a tile from your hand " << std::endl;
     // ask player where they want to place the tile on the board
     std::cin >> tileNumber;
     Tile *playerTile = new Tile(player1.getPlayerHand()->get(tileNumber));
     std::cout
-        << "please Enter Board Co-Ordinates for the tile Row and then Column"
+        << "Please Enter Board Co-Ordinates for the tile Row and then Column"
         << std::endl;
     std::cin >> rowNumber;
     std::cin >> colNumber;
@@ -84,12 +85,12 @@ GameEngine::GameEngine(Player player1, Player player2) {
     tileNumber = 0;
     rowNumber = 0;
     colNumber = 0;
-    std::cout << "please select a tile from your hand " << std::endl;
+    std::cout << "Please select a tile from your hand " << std::endl;
     // ask player where they want to place the tile on the board
     std::cin >> tileNumber;
     Tile *playerTile2 = new Tile(player2.getPlayerHand()->get(tileNumber));
     std::cout
-        << "please Enter Board Co-Ordinates for the tile Row and then Column"
+        << "Please Enter Board Co-Ordinates for the tile Row and then Column"
         << std::endl;
     std::cin >> rowNumber;
     std::cin >> colNumber;
@@ -137,7 +138,6 @@ GameEngine::~GameEngine() {
 }
 
 void addTilesToPlayerHand(int numTiles, Player player, Bag *gameBag) {
-
   // int numStartingTiles = 6;
   int loopCounter = 0;
   if (gameBag->listSize() != 0) {

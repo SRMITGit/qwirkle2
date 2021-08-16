@@ -1,11 +1,9 @@
 // s3831786 Gordon Richard - RMIT
 
 #include "Player.h"
-
 #include <ostream>
 
 Player::Player(std::string name) { this->name = name; }
-
 Player::~Player() {}
 
 Player::Player(std::string name, LinkedList *hand) {
@@ -14,9 +12,7 @@ Player::Player(std::string name, LinkedList *hand) {
 }
 
 void Player::setPlayerHand(LinkedList *hand) { this->hand = hand; }
-
 void Player::setPlayerScore(int score) { this->score = score; }
-
 void Player::addPlayerScore(int score) { this->score += score; }
 
 LinkedList *Player::getPlayerHand() { return hand; }

@@ -28,43 +28,55 @@
 #define BLUE_BACKGROUND "\033[44m"
 #define MAGENTA_BACKGROUND "\033[45m"
 
+enum Colours {
+  RED = 'R',
+  ORANGE = 'O',
+  YELLOW = 'Y',
+  GREEN = 'G',
+  BLUE = 'B',
+  PURPLE = 'P'
+};
 
-class Colours {
+/*  0: black
+ 1: red
+ 2: green
+ 3: yellow
+ 4: blue
+ 5: magenta
+ 6: cyan
+ 7: white */
+
+class TileColours {
 public:
-  Colours();
+  TileColours();
   // Copy constructor
-  Colours(Colours &other);
+  TileColours(TileColours &other);
   // Move constructor
-  Colours(Colours &&other);
+  TileColours(TileColours &&other);
   // Deconstructor
-  ~Colours();
+  ~TileColours();
 
   void tileColours();
 
-  Colours getColoursList();
+  TileColours getTileColoursList();
   int getNumber();
   int size();
-  int mainColours();
+  int mainTileColours();
 
-  Colours *get(int index);
-  void add(Colours *coloursList);
-  void add(Colours *coloursList, int index);
+  TileColours *get(int index);
+  void add(TileColours *tileColoursList);
+  void add(TileColours *tileColoursList, int index);
   void remove(int index);
 
-  void selectionColours();
+  void selectionTileColours();
   void clear();
   void quit();
   // void newGame();
 
 private:
-  Colours *colour;
+  TileColours *tileColour;
   int *number;
   // std::vector<Colours *> coloursList;
 };
-
-
-
-
-
 
 #endif // ASSIGN2_TILECOLOURS_H

@@ -1,9 +1,7 @@
 // s3831786 Gordon Richard - RMIT
 
 #include "LinkedList.h"
-
 #include <string>
-
 #include <ostream>
 
 class Player {
@@ -14,9 +12,7 @@ public:
   LinkedList *hand;
 
   Player(std::string name);
-
   Player(std::string name, LinkedList *hand);
-
   ~Player();
   // to return name stored in string type
   std::string getPlayerName();
@@ -25,11 +21,9 @@ public:
   bool setName(std::string &playerName);
 
   void setPlayerScore(int score);
-
   void addPlayerScore(int score);
 
   void setPlayerHand(LinkedList *hand);
-
   void printPlayerHand();
 
   LinkedList *getPlayerHand();

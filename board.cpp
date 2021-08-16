@@ -64,7 +64,7 @@ void Board::display() {
                         << this->getTile(i, j)->getTileShape();
           // std::cout << "Second if Statement: " << std::endl;
         }
-        // printTile ins't doing anything yet
+        // printTile isn't doing anything yet
         /* else
         {
             this->getTile(i, j)->printTile();
@@ -77,49 +77,6 @@ void Board::display() {
     *outputStream << std::endl;
   }
 }
-
-// void Board::displayBoard() {
-//   int outLoopCounter = 0;
-//   int innLoopCounter = 0;
-
-//   while (outLoopCounter < board.size()) {
-
-//     if (board[outLoopCounter][innLoopCounter] == nullptr) {
-//       std::cout << "|A|";
-//       outLoopCounter +=1;
-
-//     } else {
-//       std::cout << "|" << board[outLoopCounter][innLoopCounter] << "|";
-//       outLoopCounter +=1;
-//     }
-
-//     while (innLoopCounter < board.size()) {
-
-//       if (board[outLoopCounter][innLoopCounter] == nullptr) {
-//         //  std::cout << "Printing OuterLoop: " <<
-//         //  board[outLoopCounter][innLoopCounter] << std::endl;
-//         std::cout << "|B|";
-//         innLoopCounter +=1;
-
-//       } else {
-//         std::cout << "| " << board[outLoopCounter][innLoopCounter] << " |";
-//         innLoopCounter +=1;
-//       }
-
-//         // std::cout << std::endl;
-
-//     }
-
-//       outLoopCounter +=1;
-//     // std::cout << std::endl;
-//     // std::cout << "Counter Outside" << outLoopCounter << std::endl;
-//     // std::cout << "Counter Inside" << innLoopCounter << std::endl;
-//   }
-//     std::cout << "Counter Outside" << outLoopCounter << std::endl;
-//     std::cout << "Counter Inside" << innLoopCounter << std::endl;
-//     std::cout << std::endl;
-
-// }
 
 void Board::displayBoard() {
   // Helper function takes an Env type (2D Char Array) and prints it out to the
@@ -168,7 +125,6 @@ void Board::displayBoard() {
 }
 
 std::string Board::toString() {
-
   std::string output = "";
   int n = (int)board.size();
 
@@ -187,6 +143,7 @@ std::string Board::toString() {
   }
   return output;
 }
+
 int Board::getSize() { return board.size(); }
 
 Tile *Board::getTile(int row, int col) {

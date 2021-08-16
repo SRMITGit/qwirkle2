@@ -15,9 +15,9 @@
 
 // #define EXIT_SUCCESS    0
 
-void testTileCreation();
+/* void testTileCreation();
 void testLinkedListCreation();
-void testStudentCreation();
+void testStudentCreation(); */
 void playerTest();
 
 int main(void) {
@@ -57,7 +57,7 @@ int main(void) {
   return EXIT_SUCCESS;
 }
 
-void testTileCreation() {
+/* void testTileCreation() {
   // testing the creation of a new tile
   std::cout << "Creating a new Tiles" << std::endl;
   std::cout << "Creating a new Tiles" << std::endl;
@@ -219,3 +219,4 @@ void playerTest() {
 
   delete testPlayer;
 }
+ */

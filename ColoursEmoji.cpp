@@ -5,12 +5,12 @@
 #include "tileColours.h"
 #include "tileEmoji.h"
 
-Colours::Colours() {}
-Colours::~Colours() {}
+TileColours::TileColours() {}
+TileColours::~TileColours() {}
 Emoji::Emoji() {}
 Emoji::~Emoji() {}
 
-void Colours::tileColours() {
+void TileColours::tileColours() {
   // Declaring Vector of String type
   // Values can be added here using initialise-list syntax
   std::vector<std::string> menuList{"1.New Game", "2. Load Game", "3. Credits",

@@ -15,6 +15,9 @@ Player p2("");
 void newGame::addPlayers() {
   std::string player1;
   std::string player2;
+  std::string player3;
+  std::string player4;
+  // std::string name;
   std::vector<std::string> gameList;
   gameList.emplace_back("Starting a New Game");
   gameList.emplace_back("Enter a name for player 1");
@@ -39,6 +42,8 @@ void newGame::addPlayers() {
   }
   playerNames[0] = player1;
   playerNames[1] = player2;
+  // playerNames[2] = player3;
+  // playerNames[3] = player4;
 
   currentPlayer = playerNames[0];
   play = 0;

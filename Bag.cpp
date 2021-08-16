@@ -5,10 +5,13 @@ and placed in the players hand
 
 #include "Bag.h"
 #include "Tile.h"
-#include "TileCodes.h"
+// #include "TileCodes.h"
 #include "loadGame.h"
+#include "tileColours.h"
+#include "tileEmoji.h"
 #include <iostream>
 #include <random>
+#include <stdio.h>
 
 #define MAX_BAG_TILES 72
 
@@ -89,7 +92,6 @@ Colour Bag::randomColour() {
 }
 
 Shape Bag::randomShape() {
-
   Shape randomShape;
   // initialise ints for the colour and shape
   int shapeValue = -1;
@@ -113,6 +115,5 @@ Shape Bag::randomShape() {
     randomShape = CLOVER;
   }
   // std::cout << "Randomly-chosen shape: " << shapeValue << std::endl;
-
   return randomShape;
 }

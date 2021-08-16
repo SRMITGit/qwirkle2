@@ -24,11 +24,22 @@ Put backslash before "U" and three zeros after "U".
 #define STAR "\U00002B50"
 #define BLUE_DIAMOND "\U0001F537"
 #define ORANGE_DIAMOND "\U0001F536"
-#define DIAMOND "\U00002666"
+// #define DIAMOND "\U00002666"
 #define BLACK_SQUARE "\U00002B1B"
+#define WHITE_LARGE_SQUARE "\U0002B1C"
+#define PURPLE_SQUARE "\U0001F7EA"
 #define WHITE_FLOWER "\U0001F4AE"
 #define KANGAROO "\U0001F998"
 #define FIRE "\U0001F525"
+
+enum Shapes {
+  CIRCLE = 1,
+  STAR_4 = 2,
+  DIAMOND = 3,
+  SQUARE = 4,
+  STAR_6 = 5,
+  CLOVER = 6
+};
 
 class Emoji {
 public:
