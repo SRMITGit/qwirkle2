@@ -4,6 +4,8 @@
 
 #include <string>
 
+#include <ostream>
+
 class Player
 {
 
@@ -28,6 +30,8 @@ public:
     void addPlayerScore(int score);
 
     void setPlayerHand(LinkedList *hand);
+
+    void printPlayerHand();
 
     LinkedList *getPlayerHand();
 

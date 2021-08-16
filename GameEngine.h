@@ -34,7 +34,8 @@ public:
     // std::string getGameEngineID();
     // std::string getEmail();
     // //other
-    // void printGameEngineDetails();
+    // void addTilesToPlayerHand(unsigned int numTiles, Player player, Bag * gameGame);
+    void gameBagFromFile(std::string player_1_name, std::string player_2_name);
 
 private:
     // these have to be pointers so we can create class attributes on the heap

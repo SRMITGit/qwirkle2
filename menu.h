@@ -46,9 +46,9 @@ public:
   int size();
   int mainMenu();
 
-  Menu* get(int index);
-  void add(Menu* menuList);
-  void add(Menu* menuList, int index);
+  Menu *get(int index);
+  void add(Menu *menuList);
+  void add(Menu *menuList, int index);
   void remove(int index);
 
   void selectionMenu();
@@ -59,13 +59,7 @@ public:
 private:
   Menu *colour;
   int *number;
-  std::vector<Menu*> menuList;
-
-  // capture the number of elements inside the Vector
-  size_t m_Size = 0;
-  // capture how much memory is allocated
-  size_t m_Capacity = 0;
-
+  std::vector<Menu *> menuList;
 };
 
 #endif // ASSIGN2_MENU_H

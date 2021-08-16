@@ -4,6 +4,7 @@
 //
 
 #include "Bag.h"
+#include "loadGame.h"
 #include <iostream>
 #include "Tile.h"
 #include "TileCodes.h"
@@ -18,7 +19,7 @@ Bag::Bag() {
 
 Bag::~Bag() {
   // destructor
-  std::cout << "Deleting Bag Object and Attributes: " << std::endl;
+  std::cout << "Calling Bag Destructor - Deleting Bag Object and Attributes: " << std::endl;
   delete gameBag;
 }
 
@@ -28,9 +29,35 @@ void Bag::addTilesToBag(Bag * gameBag) {
   // loop to add tiles to the bag
   while (counter < MAX_BAG_TILES) {
     Tile * randomTile = new Tile(randomColour(), randomShape());
-    std::cout << "Adding Tile Numer: " << counter << " to the bag: " << std::endl;
+    // std::cout << "Adding Tile Numer: " << counter << " to the bag: " << std::endl;
     gameBag -> addFront(randomTile);
     ++counter;
+  }
+  std::cout << "Bag is full, total Tiles in the bag:  " << gameBag->listSize() << std::endl;
+}
+
+//Created by Guy - trying to create a bag not randomly generated.
+void Bag::loadGameTileBag(Bag * gameBag)
+{
+  loadGame loadGame;
+  int counter = 0;//will need to count how many tile have already left the bag
+  int counter2 = 0;
+  int counter3 = 0;
+
+  //loop and add tiles to the bag
+  while (counter < MAX_BAG_TILES)
+  {
+    for (int i = 0; i < 1; i++)
+    {
+      for (int j = 0; j < 1; j++)
+      {
+        Tile * loadTile = new Tile(loadGame.getArrBag(counter2), loadGame.getArrBag(counter3));
+        gameBag -> addFront(loadTile);
+        counter++;
+        counter3++;
+      }
+      counter2++;
+    }
   }
 }
 
@@ -57,7 +84,7 @@ Colour Bag::randomColour() {
   } else {
     randomColour = PURPLE;
   }
-  std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
+  // std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
   return randomColour;
 }
 
@@ -85,7 +112,7 @@ Shape Bag::randomShape() {
   } else {
     randomShape = CLOVER;
   }
-  std::cout << "Randomly-chosen shape: " << shapeValue << std::endl;
+  // std::cout << "Randomly-chosen shape: " << shapeValue << std::endl;
 
   return randomShape;
 }

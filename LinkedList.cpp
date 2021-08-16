@@ -12,7 +12,8 @@ LinkedList::LinkedList() {
 
 LinkedList::~LinkedList() {
   // deconstructor
-  std::cout << "Calling Destructor to Delete all Nodes" << std::endl;
+  std::cout << "Calling Linked List Destructor to Delete all Nodes"
+            << std::endl;
   Node *current = head;
   while (current != nullptr) {
     Node *next = current->next;
@@ -21,32 +22,41 @@ LinkedList::~LinkedList() {
   }
   head = 0;
 }
+
 void LinkedList::addFront(Tile *tile) {
   // add to the front of the linked
   // create a new Node Temp data
-  Node *tmpNode = new Node(tile, nullptr);
-  //   // assign the value of passed in to the value of the new temp node
-  tmpNode->tile = tile;
-  tmpNode->next = head;
-  head = tmpNode;
+  try {
+    Node *tmpNode = new Node(tile, nullptr);
+    //   // assign the value of passed in to the value of the new temp node
+    tmpNode->tile = tile;
+    tmpNode->next = head;
+    head = tmpNode;
+  } catch (const std::runtime_error &e) {
+    std::cerr << "Oops, can't add to the front! \n" << e.what() << "\n";
+  }
 }
 
 void LinkedList::addBack(Tile *tile) {
   // node that we want to add needs to point to nullptr as we want to add it to
   // the end of the linked list and last node always points to nullptr
-  Node *toAdd = new Node();
-  toAdd->tile = tile;
-  toAdd->next = nullptr;
+  try {
+    Node *toAdd = new Node();
+    toAdd->tile = tile;
+    toAdd->next = nullptr;
 
-  if (head == nullptr) {
-    head = toAdd;
-  } else {
-    Node *current = head;
+    if (head == nullptr) {
+      head = toAdd;
+    } else {
+      Node *current = head;
 
-    while (current->next != nullptr) {
-      current = current->next;
+      while (current->next != nullptr) {
+        current = current->next;
+      }
+      current->next = toAdd;
     }
-    current->next = toAdd;
+  } catch (const std::runtime_error &e) {
+    std::cerr << "Oops, can't add to the back! \n" << e.what() << "\n";
   }
 }
 
@@ -63,36 +73,38 @@ void LinkedList::removeFront() {
       delete tmpNode;
     }
   } catch (const std::runtime_error &e) {
-    std::cout << " a runtime exception was caught, with message '" << e.what()
-              << "'\n";
+    std::cerr << "Oops, remove from the front! \n" << e.what() << "\n";
   }
 }
 
-
 void LinkedList::removeBack() { // https://www.youtube.com/watch?v=i3b3O7slIzk
   // case 1 - Empty Linked List
-  if (this->head == nullptr) {
-    std::cout << "List was empty so cannot remove from BACK!" << std::endl;
-    return;
-  } else {
-    Node *current = head;  // ptr
-    Node *previous = NULL; // prev
-    // case 2 - One Node Linked List
-    if (head->next == NULL) {
-      current = head;
-      head = NULL;
-    }
-    // case 3 - Two Node or More Linked List
-    else {
-      current = head;
-      while (current->next != NULL) {
-        previous = current;
-        current = current->next;
+  try {
+    if (this->head == nullptr) {
+      std::cout << "List was empty so cannot remove from BACK!" << std::endl;
+      return;
+    } else {
+      Node *current = head;  // ptr
+      Node *previous = NULL; // prev
+      // case 2 - One Node Linked List
+      if (head->next == NULL) {
+        current = head;
+        head = NULL;
       }
-      // once loop finished point the last node in the list to NULL
-      previous->next = NULL;
-      delete current;
+      // case 3 - Two Node or More Linked List
+      else {
+        current = head;
+        while (current->next != NULL) {
+          previous = current;
+          current = current->next;
+        }
+        // once loop finished point the last node in the list to NULL
+        previous->next = NULL;
+        delete current;
+      }
     }
+  } catch (const std::runtime_error &e) {
+    std::cerr << "Oops, remove from the back! \n" << e.what() << "\n";
   }
 }
 
@@ -118,19 +130,22 @@ Tile LinkedList::get(unsigned int index) const {
   // if (index >= 0 && index < size()) // can get rid of this now we changed it
   // to unsigned
   Tile *returnValue = current->tile;
-  if (index < listSize()) {
-    while (count < index) {
-      ++count;
-      current = current->next;
-
+  try {
+    if (index < listSize()) {
+      while (count < index) {
+        ++count;
+        current = current->next;
+      }
+      returnValue = current->tile;
+    } else {
+      // in c++ can throw any object as an exception
+      // find the most relevant error from the base Exception class
+      // find the constructor to create an object of that type of object that
+      // want to throw
+      throw std::out_of_range("Sorry, that tile cannot be reached.");
     }
-    returnValue = current->tile;
-  } else {
-    // in c++ can throw any object as an exception
-    // find the most relevant error from the base Exception class
-    // find the constructor to create an object of that type of object that want
-    // to throw
-    throw std::out_of_range("Linked List get - index out of range");
+  } catch (std::exception &e) {
+    std::cerr << "Oops, something went wrong! \n" << e.what() << "\n";
   }
   return *returnValue;
 }
@@ -142,13 +157,14 @@ void LinkedList::printNodes() {
   unsigned int count = 0;
   Node *current = head;
   //      // look unit we get to the tail node
+  std::cout << "Your hand is " << std::endl;
   while (current != nullptr) {
-    std::cout << "Value of node at position: " << count << " : "
-              << current->tile->getTileColour() << current->tile->getTileShape()
-              << std::endl;
+    std::cout << current->tile->getTileColour() << current->tile->getTileShape()
+              << ",";
     ++count;
     current = current->next;
   }
+  std::cout << std::endl;
   //   }
 }
 

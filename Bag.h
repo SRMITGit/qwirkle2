@@ -20,6 +20,7 @@ public:
     Bag(Bag& other);
     // void addTilesToBag();
     void addTilesToBag(Bag * gameBag);
+    void loadGameTileBag(Bag * gameBag);
     Colour randomColour();
     Shape randomShape();
 

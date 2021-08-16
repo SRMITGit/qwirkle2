@@ -44,7 +44,10 @@ void newGame::addPlayers() {
   play = 0;
 }
 
-std::string newGame::getCurrentPlayer() { return currentPlayer; }
+std::string newGame::getCurrentPlayer() 
+{ 
+  return currentPlayer; 
+}
 // call function switch player two switch between current player
 void newGame::switchPlayer() {
   if (play == 0) {
@@ -63,8 +66,11 @@ void newGame::startGameMsg() {
 
 void newGame::gamePlay() {
   // assigning player names to p1 and p2
-  Player p1(playerNames[0]);
-  Player p2(playerNames[1]);
+  // adding new linked list for player hands
+  LinkedList * p1Hand = new LinkedList();
+  LinkedList * p2Hand = new LinkedList();
+  Player p1(playerNames[0], p1Hand); //create new player with a hand 
+  Player p2(playerNames[1], p2Hand); // create a new player with a hand
   // seeting sores to 0 for p1 and p2
   p1.setPlayerScore(0);
   p2.setPlayerScore(0);
@@ -82,9 +88,21 @@ void newGame::gamePlay() {
   delete newGameEngine;
   // can call GameEngine here 
 
-
   // fetch board here
-  // display current player hand here
+  // Check to see who current player is and display current player hand
+  if (playerNames[0] == getCurrentPlayer())
+  {
+    std::cout << getCurrentPlayer() << "s hand: " << p1.getPlayerHand() << std::endl;
+  }
+
+  else if (playerNames[1] == getCurrentPlayer())
+  {
+    std::cout << getCurrentPlayer() << "s hand: " << p2.getPlayerHand() << std::endl;
+  }
+  else 
+  {
+    std::cout << "We have a problem with names!!";
+  }
 }
 
 void newGame::runGame() {
@@ -94,29 +112,44 @@ void newGame::runGame() {
   gamePlay();
   // update game stats
 
-  saveGame();
+  // saveGame();
 }
 
 void newGame::saveGame() {
+  std::string save = ".save";
 
   std::string fileName = "";
   std::cout << "Enter name you wish to give to save game file" << std::endl;
   std::cout << ">";
   std::cin >> fileName;
+  fileName = "Saved Games/" + fileName;
 
+  // check if file name has a .save at the back, if none add it
+  if (fileName.find(save) != std::string::npos)
+  {
+  }
+  else
+  {
+      fileName = fileName + save;
+  }
+  //open new file 
   std::ofstream MyWriteFile(fileName);
+  //write to file
   MyWriteFile << playerNames[0] << "\n";
   MyWriteFile << p1.getPlayerScore() << "\n";
-  MyWriteFile << "Player 1 Hand goes here"
+  MyWriteFile << p1.getPlayerHand()
               << "\n";
   MyWriteFile << playerNames[1] << "\n";
   MyWriteFile << p2.getPlayerScore() << "\n";
-  MyWriteFile << "Player 2 hand goes here"
+  MyWriteFile << p2.getPlayerHand()
               << "\n";
   MyWriteFile << "current board state goes here"
               << "\n";
   MyWriteFile << "Tile bag content goes here"
               << "\n";
   MyWriteFile << getCurrentPlayer() << "\n";
+  //close file
   MyWriteFile.close();
+
+  std::cout << "Game Successfully Saved" << std::endl;
 }

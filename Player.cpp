@@ -4,6 +4,8 @@
 
 using namespace std;
 
+#include <ostream>
+
 Player::Player(std::string name)
 {
     this->name = name;
@@ -60,4 +62,10 @@ string *Player::getPlayerNamePtr()
 {
     string *namePtr = &name;
     return namePtr;
+}
+
+void Player::printPlayerHand()
+{
+    this->hand->printNodes();
+   
 }
