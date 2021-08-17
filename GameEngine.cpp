@@ -8,7 +8,9 @@
 #include "GameEngine.h"
 #include "Bag.h"
 #include "board.h"
+#include "menu.h"
 #include <iostream>
+#include <stdio.h>
 #include <string>
 
 void addTilesToPlayerHand(int numTiles, Player player, Bag *gameBag);
@@ -63,15 +65,17 @@ GameEngine::GameEngine(Player player1, Player player2) {
     int tileNumber = 0;
     int rowNumber = 0;
     int colNumber = 0;
-    std::cout << "Please select a tile from your hand " << std::endl;
+    std::cout << "Please select a tile from your hand \n> ";
     // ask player where they want to place the tile on the board
     std::cin >> tileNumber;
     Tile *playerTile = new Tile(player1.getPlayerHand()->get(tileNumber));
     std::cout
         << "Please Enter Board Co-Ordinates for the tile Row and then Column"
         << std::endl;
-    std::cin >> rowNumber;
-    std::cin >> colNumber;
+    std::cout << SIGN << SPACE << "place ";
+    std::cin >> rowNumber >> colNumber;
+    // std::cout << " at ";
+    // std::cin >> colNumber;
     std::cout << "Tile will be placed on board at ROW:" << rowNumber
               << " COL: " << colNumber << std::endl;
     board->setTile(rowNumber, colNumber, playerTile);
@@ -148,7 +152,9 @@ void addTilesToPlayerHand(int numTiles, Player player, Bag *gameBag) {
       /* std::cout << "Adding Tile to Players Hand: "
                 << newFrontBagTile->getTileColour()
                 << newFrontBagTile->getTileShape() << std::endl; */
-      std::printf("Adding Tile to Players Hand: %d %d",newFrontBagTile->getTileColour(), newFrontBagTile->getTileShape());
+      std::printf("Adding Tile to Players Hand: %d %d",
+                  newFrontBagTile->getTileColour(),
+                  newFrontBagTile->getTileShape());
       // remove the tile from the front of the bag
       gameBag->removeFront();
 
