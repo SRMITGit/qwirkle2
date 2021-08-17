@@ -32,14 +32,23 @@ Put backslash before "U" and three zeros after "U".
 #define KANGAROO "\U0001F998"
 #define FIRE "\U0001F525"
 
-enum Shapes {
+/* enum Shapes : unsigned string {
+  CIRCLE = '\U0001F535',
+  STAR_4 = 2,
+  DIAMOND = 3,
+  SQUARE = 4,
+  STAR_6 = 5,
+  CLOVER = 6
+}; */
+
+/* enum Shapes {
   CIRCLE = 1,
   STAR_4 = 2,
   DIAMOND = 3,
   SQUARE = 4,
   STAR_6 = 5,
   CLOVER = 6
-};
+}; */
 
 class Emoji {
 public:

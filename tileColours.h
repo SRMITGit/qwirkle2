@@ -28,14 +28,14 @@
 #define BLUE_BACKGROUND "\033[44m"
 #define MAGENTA_BACKGROUND "\033[45m"
 
-enum Colours {
+/* enum Colours {
   RED = 'R',
   ORANGE = 'O',
   YELLOW = 'Y',
   GREEN = 'G',
   BLUE = 'B',
   PURPLE = 'P'
-};
+}; */
 
 /*  0: black
  1: red

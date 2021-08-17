@@ -75,6 +75,34 @@ Colour Bag::randomColour() {
   colourValue = uniform_dist(engine);
   // random Colour
   if (colourValue == (1)) {
+    randomColour = std::printf("R %s", RED_TEXT);  //\033[31m RED
+  } else if (colourValue == (2)) {
+    randomColour = std::printf("O %s", MAGENTA_TEXT);  //\033[35m ORANGE 
+  } else if (colourValue == (3)) {
+    randomColour = std::printf("Y %s", YELLOW_TEXT);  //\033[33m YELLOW
+  } else if (colourValue == (4)) {
+    randomColour = std::printf("G %s", GREEN_TEXT);  //\033[32m GREEN
+  } else if (colourValue == (5)) {
+    randomColour = std::printf("B %s", BLUE_TEXT);  //\033[34m  BLUE
+  } else {
+    randomColour = std::printf("P %s", CYAN_TEXT);  //\033[36m PURPLE 
+  }
+  // std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
+  return randomColour;
+  // return 0;
+}
+
+/* Colour Bag::randomColour() {
+  Colour randomColour;
+  // initialise ints for the colour and shape
+  int colourValue = -1;
+  int min = 1;
+  int max = 6;
+  std::random_device engine;
+  std::uniform_int_distribution<int> uniform_dist(min, max);
+  colourValue = uniform_dist(engine);
+  // random Colour
+  if (colourValue == (1)) {
     randomColour = RED;
   } else if (colourValue == (2)) {
     randomColour = ORANGE;
@@ -89,7 +117,7 @@ Colour Bag::randomColour() {
   }
   // std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
   return randomColour;
-}
+} */
 
 Shape Bag::randomShape() {
   Shape randomShape;
@@ -102,18 +130,25 @@ Shape Bag::randomShape() {
   shapeValue = uniform_dist(engine);
   // random shape
   if (shapeValue == (1)) {
-    randomShape = CIRCLE;
+    randomShape = std::printf("%s", LARGE_BLUE_CIRCLE); //CIRCLE  \U0001F535
+    // std::printf(PURPLE_SQUARE, randomShape);
   } else if (shapeValue == (2)) {
-    randomShape = STAR_4;
+    randomShape = std::printf("%s", STAR); //STAR_4);  \U00002B50 
+    // std::printf(STAR, randomShape);
   } else if (shapeValue == (3)) {
-    randomShape = DIAMOND;
+    randomShape = std::printf("%s", BLUE_DIAMOND); //DIAMOND);  \U0001F537 
+    // std::printf(WHITE_FLOWER, randomShape);
   } else if (shapeValue == (4)) {
-    randomShape = SQUARE;
+    randomShape = std::printf("%s", PURPLE_SQUARE); //SQUARE);  \U0001F7EA 
+    // std::printf(KANGAROO, randomShape);
   } else if (shapeValue == (5)) {
-    randomShape = STAR_6;
+    randomShape = std::printf("%s", KANGAROO); //STAR_6);  \U0001F998 
+    // std::printf(FIRE, randomShape);
   } else {
-    randomShape = CLOVER;
+    randomShape = std::printf("%s", FIRE); //CLOVER);  \U0001F525 
+    // std::printf(BLACK_SQUARE, randomShape);
   }
   // std::cout << "Randomly-chosen shape: " << shapeValue << std::endl;
   return randomShape;
+  // return 0;
 }

@@ -145,9 +145,10 @@ void addTilesToPlayerHand(int numTiles, Player player, Bag *gameBag) {
     while (loopCounter < numTiles) {
       Tile *newFrontBagTile = new Tile(gameBag->get(0));
       player.getPlayerHand()->addBack(newFrontBagTile);
-      std::cout << "Adding Tile to Players Hand: "
+      /* std::cout << "Adding Tile to Players Hand: "
                 << newFrontBagTile->getTileColour()
-                << newFrontBagTile->getTileShape() << std::endl;
+                << newFrontBagTile->getTileShape() << std::endl; */
+      std::printf("Adding Tile to Players Hand: %d %d",newFrontBagTile->getTileColour(), newFrontBagTile->getTileShape());
       // remove the tile from the front of the bag
       gameBag->removeFront();
 
