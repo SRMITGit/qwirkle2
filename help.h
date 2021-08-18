@@ -1,23 +1,16 @@
+#ifndef ASSIGN2_HELP_H
+#define ASSIGN2_HELP_H
+
 #include <fstream>
 #include <iostream>
+#include <stdexcept>
 #include <string>
-// #include <vector>
 
 class Help {
 public:
-  // Help();
+  Help();
+  ~Help();
   int displayHelp();
-  // std::string getCurrentPlayer();
-  // void switchPlayer();
-  // void startGameMsg();
-  // void runGame();
-  // void gamePlay();
-  // void saveGame();
-
-  // ~Help();
-
-// private:
-  // std::string currentPlayer;
-  // std::string playerNames[2];
-  // int play;
 };
+
+#endif // ASSIGN2_HELP_H

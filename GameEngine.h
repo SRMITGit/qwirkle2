@@ -5,8 +5,8 @@
 //  Created by Philip Beeby on 18/7/21.
 //
 
-#ifndef GameEngine_h
-#define GameEngine_h
+#ifndef ASSIGN2_GAMEENGINE_H
+#define ASSIGN2_GAMEENGINE_H
 
 #include "Bag.h"
 #include "Player.h"
@@ -44,4 +44,4 @@ private:
   Bag *gameTileBag;
 };
 
-#endif /* GameEngine_h */
+#endif /* ASSIGN2_GAMEENGINE_H */

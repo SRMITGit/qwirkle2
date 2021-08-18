@@ -1,5 +1,5 @@
-#ifndef Bag_h
-#define Bag_h
+#ifndef ASSIGN2_BAG_H
+#define ASSIGN2_BAG_H
 
 #include "LinkedList.h"
 
@@ -22,4 +22,4 @@ private:
   LinkedList *gameBag;
 };
 
-#endif /* Bag_h */
+#endif /* ASSIGN2_BAG_H */

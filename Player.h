@@ -1,5 +1,9 @@
 // s3831786 Gordon Richard - RMIT
 
+#ifndef ASSIGN2_PLAYER_H
+#define ASSIGN2_PLAYER_H
+
+
 #include "LinkedList.h"
 #include <string>
 #include <ostream>
@@ -34,3 +38,5 @@ public:
   // to return memory address of player score
   int *getPlayerScorePtr();
 };
+
+#endif // ASSIGN2_PLAYER_H

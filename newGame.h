@@ -1,3 +1,6 @@
+#ifndef ASSIGN2_NEWGAME_H
+#define ASSIGN2_NEWGAME_H
+
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -21,3 +24,5 @@ private:
   std::string playerNames[2];
   int play;
 };
+
+#endif // ASSIGN2_NEWGAME_H
