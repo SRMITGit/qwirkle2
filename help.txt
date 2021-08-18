@@ -1,6 +1,0 @@
-Helpful Tips
-
-- You can score double points when you add a tile that forms more than one line.
-- Try not to make a line of 5 tiles because your opponents will add the 6th tile and score the bonus Qwirkle.
-- When you have an identical pair of tiles in your deck, i.e. two circles, try to play them asap.
-- You can use small two-tile combos to block your opponent's attempt for a Qwirkle.
