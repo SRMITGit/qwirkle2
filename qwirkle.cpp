@@ -9,6 +9,8 @@
 #include "board.h"
 #include "credits.h"
 #include "menu.h"
+#include "tileColours.h"
+#include "tileEmoji.h"
 #include <iostream>
 
 #define MAX_BAG_TILES 72
@@ -27,8 +29,10 @@ int main(void) {
   // board->display();
 
   Menu selectionMenu;
-  std::cout << "Welcome to Qwirkle!" << std::endl;
-  std::cout << "-------------------" << std::endl;
+  std::cout << RED_CIRCLE << " " << BLACK_CIRCLE << " " << WHITE_CIRCLE
+            << " " << " Welcome to Qwirkle! " << PURPLE_SQUARE << " " << WHITE_FLOWER
+            << " " << KANGAROO << std::endl;
+  std::cout << "------------------------------------" << std::endl;
   // START run tests
   // this is how you can create a new bag at the start of the game
 
