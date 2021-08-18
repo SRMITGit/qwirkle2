@@ -5,17 +5,19 @@
 
 #include "GameEngine.h"
 #include "credits.h"
+#include "help.h"
 #include "loadGame.h"
 #include "menu.h"
 #include "newGame.h"
-#include "help.h"
+#include "userPrompt.h"
+#include "tileColours.h"
+#include "tileEmoji.h"
 
 int length = 0;
 
 Menu::Menu() {}
 Menu::~Menu() { clear(); }
 Credits::Credits() {}
-// Help::Help() {}
 
 // Returns the current size of the Menu
 int Menu::size() { return length; }
@@ -31,11 +33,12 @@ void Menu::clear() {
 // Quits the entire program
 void Menu::quit() {
   std::string quit = "Goodbye!";
-  std::cout << quit << std::endl;
+  std::cout << quit << GOODBYE << std::endl;
   exit(1);
 }
 
 int Menu::mainMenu() {
+  UserPrompt userPrompt;
   // Reference:
   // https://stackoverflow.com/questions/60616203/how-can-i-make-a-function-that-prints-out-a-menu
   // Declaring Vector of String type
@@ -49,12 +52,12 @@ int Menu::mainMenu() {
   menuList.emplace_back(std::move("5. Quit"));
 
   // Print Strings stored in Vector
-  std::cout << "Menu" << std::endl;
-  std::cout << "----" << std::endl;
+  std::cout << GREEN_TEXT << "Menu" << RESET_COLOUR << std::endl;
+  std::cout << "-------" << std::endl;
   for (std::string &value : menuList) {
     std::cout << value << std::endl;
   }
-  std::cout << SIGN << SPACE;
+  userPrompt.userPrompt();
 
   int selected = 0;
   std::string input;
@@ -75,14 +78,14 @@ void Menu::selectionMenu() {
 
   while ((selected = Menu::mainMenu()) <= 4 && !std::cin.eof()) {
     if (selected == 1) {
-      std::cout << "Starting a New Game" << std::endl;
+      std::cout << BLUE_TEXT << "Starting a New Game " << RED_TEXT << JOYSTICK << RESET_COLOUR <<std::endl;
       std::cout << "-------------------" << std::endl;
       runGame.runGame();
     } else if (selected == 2) {
       loadGame.readFile();
     } else if (selected == 3) {
       std::cout << "The Team!" << std::endl;
-      std::cout << printCredits.printCredits() << std::endl;
+      printCredits.printCredits();
     } else if (selected == 4) {
       displayHelp.displayHelp();
     } else if (selected == 5) {

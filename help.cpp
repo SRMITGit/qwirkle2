@@ -4,11 +4,13 @@ www.ultraboardgames.com, viewed 18 August 2021,
 <https://www.ultraboardgames.com/qwirkle/tips.php>. */
 
 #include "help.h"
+#include "userPrompt.h"
 
 Help::Help() {}
 Help::~Help() {}
 
 int Help::displayHelp() {
+  UserPrompt userPrompt;
   std::string help;
   std::ifstream file("help.txt");
   try {
@@ -17,6 +19,7 @@ int Help::displayHelp() {
         std::cout << help << std::endl;
       }
       file.close();
+      userPrompt.userPrompt();
     } else {
       throw std::runtime_error("Could not open file");
     }
