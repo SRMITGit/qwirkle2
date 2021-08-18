@@ -8,12 +8,14 @@
 #include "loadGame.h"
 #include "menu.h"
 #include "newGame.h"
+#include "help.h"
 
 int length = 0;
 
 Menu::Menu() {}
 Menu::~Menu() { clear(); }
 Credits::Credits() {}
+// Help::Help() {}
 
 // Returns the current size of the Menu
 int Menu::size() { return length; }
@@ -39,11 +41,12 @@ int Menu::mainMenu() {
   // Declaring Vector of String type
   // Strings can be added at any time with emplace_back
   std::vector<std::string> menuList;
-  menuList.reserve(4);
+  menuList.reserve(5);
   menuList.emplace_back(std::move("1. New Game"));
   menuList.emplace_back(std::move("2. Load Game"));
   menuList.emplace_back(std::move("3. Credits"));
-  menuList.emplace_back(std::move("4. Quit"));
+  menuList.emplace_back(std::move("4. Help"));
+  menuList.emplace_back(std::move("5. Quit"));
 
   // Print Strings stored in Vector
   std::cout << "Menu" << std::endl;
@@ -67,6 +70,7 @@ void Menu::selectionMenu() {
   Credits printCredits;
   newGame runGame;
   loadGame loadGame;
+  Help displayHelp;
   int selected = -1;
 
   while ((selected = Menu::mainMenu()) <= 4 && !std::cin.eof()) {
@@ -80,6 +84,8 @@ void Menu::selectionMenu() {
       std::cout << "The Team!" << std::endl;
       std::cout << printCredits.printCredits() << std::endl;
     } else if (selected == 4) {
+      displayHelp.displayHelp();
+    } else if (selected == 5) {
       std::cout << " " << std::endl;
       Menu::quit();
     } else {

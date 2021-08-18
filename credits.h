@@ -6,8 +6,6 @@ public:
   Credits();
   // Copy constructor
   Credits(Credits &other);
-  // Move constructor
-  Credits(Credits &&other);
   // Deconstructor
   ~Credits();
 

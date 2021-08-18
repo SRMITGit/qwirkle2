@@ -1,43 +1,42 @@
 // s3831786 Gordon Richard - RMIT
 
+#ifndef ASSIGN2_PLAYER_H
+#define ASSIGN2_PLAYER_H
+
+
 #include "LinkedList.h"
-
 #include <string>
-
 #include <ostream>
 
-class Player
-{
+class Player {
 
 public:
-    std::string name;
-    int score;
-    LinkedList *hand;
+  std::string name;
+  int score;
+  LinkedList *hand;
 
-    Player(std::string name);
+  Player(std::string name);
+  Player(std::string name, LinkedList *hand);
+  ~Player();
+  // to return name stored in string type
+  std::string getPlayerName();
+  // to return memory address of string name
+  std::string *getPlayerNamePtr();
+  bool setName(std::string &playerName);
 
-    Player(std::string name, LinkedList *hand);
+  void setPlayerScore(int score);
+  void addPlayerScore(int score);
 
-    ~Player();
-    // to return name stored in string type
-    std::string getPlayerName();
-    // to return memory address of string name
-    std::string *getPlayerNamePtr();
-    bool setName(std::string &playerName);
+  void setPlayerHand(LinkedList *hand);
+  void printPlayerHand();
 
-    void setPlayerScore(int score);
+  LinkedList *getPlayerHand();
 
-    void addPlayerScore(int score);
+  // to return player score stored in int type
+  int getPlayerScore();
 
-    void setPlayerHand(LinkedList *hand);
-
-    void printPlayerHand();
-
-    LinkedList *getPlayerHand();
-
-    // to return player score stored in int type
-    int getPlayerScore();
-
-    // to return memory address of player score
-    int *getPlayerScorePtr();
+  // to return memory address of player score
+  int *getPlayerScorePtr();
 };
+
+#endif // ASSIGN2_PLAYER_H
