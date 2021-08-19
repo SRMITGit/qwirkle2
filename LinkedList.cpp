@@ -4,10 +4,7 @@
 #include <iostream>
 #include <stdexcept>
 
-LinkedList::LinkedList() {
-  this->head = nullptr;
-
-}
+LinkedList::LinkedList() { this->head = nullptr; }
 
 LinkedList::~LinkedList() {
   // deconstructor
@@ -160,7 +157,8 @@ void LinkedList::printNodes() {
   while (current != nullptr) {
     std::cout << current->tile->getTileColour() << current->tile->getTileShape()
               << ",";
-    // std::printf("%c%c", (char)current->tile->getTileColour(), (char)current->tile->getTileShape());
+    // std::printf("%c%c", (char)current->tile->getTileColour(),
+    // (char)current->tile->getTileShape());
     ++count;
     current = current->next;
   }

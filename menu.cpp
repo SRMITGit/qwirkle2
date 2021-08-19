@@ -9,30 +9,22 @@
 #include "loadGame.h"
 #include "menu.h"
 #include "newGame.h"
-#include "userPrompt.h"
 #include "tileColours.h"
 #include "tileEmoji.h"
+#include "userPrompt.h"
 
 int length = 0;
 
 Menu::Menu() {}
-Menu::~Menu() { clear(); }
+Menu::~Menu() {}
 Credits::Credits() {}
 
 // Returns the current size of the Menu
 int Menu::size() { return length; }
 
-// Removes all menu items from the Menu
-void Menu::clear() {
-  for (int i = 0; i != length; ++i) {
-    delete menuList[i];
-    menuList[i] = nullptr;
-  }
-}
-
 // Quits the entire program
 void Menu::quit() {
-  std::string quit = "Goodbye!";
+  std::string quit = "Goodbye! ";
   std::cout << quit << GOODBYE << std::endl;
   exit(1);
 }
@@ -78,7 +70,8 @@ void Menu::selectionMenu() {
 
   while ((selected = Menu::mainMenu()) <= 4 && !std::cin.eof()) {
     if (selected == 1) {
-      std::cout << BLUE_TEXT << "Starting a New Game " << RED_TEXT << JOYSTICK << RESET_COLOUR <<std::endl;
+      std::cout << BLUE_TEXT << "Starting a New Game " << RED_TEXT << JOYSTICK
+                << RESET_COLOUR << std::endl;
       std::cout << "-------------------" << std::endl;
       runGame.runGame();
     } else if (selected == 2) {
