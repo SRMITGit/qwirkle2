@@ -33,6 +33,7 @@ Put backslash before "U" and three zeros after "U".
 #define FIRE "\U0001F525"
 #define JOYSTICK "\U0001F579"
 #define GOODBYE "\U0001F44B"
+#define MEMO "\U0001F4DD"
 
 /* enum Shapes : unsigned string {
   CIRCLE = '\U0001F535',

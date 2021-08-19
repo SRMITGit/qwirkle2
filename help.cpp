@@ -2,13 +2,38 @@
 Ultra BoardGames n.d., Tips to win Qwirkle | UltraBoardGames,
 www.ultraboardgames.com, viewed 18 August 2021,
 <https://www.ultraboardgames.com/qwirkle/tips.php>. */
-
 #include "help.h"
+#include "tileColours.h"
+#include "tileEmoji.h"
 #include "userPrompt.h"
 
 Help::Help() {}
 Help::~Help() {}
 
+void Help::displayHelp() {
+  std::vector<std::string> helpText;
+  helpText.emplace_back(
+      std::move("You can score double points when you add a tile "
+                "that forms more than one line."));
+  helpText.emplace_back(
+      std::move("Try not to make a line of 5 tiles because your opponents will "
+                "add the 6th tile and score the bonus Qwirkle."));
+  helpText.emplace_back(
+      std::move("When you have an identical pair of tiles in your "
+                "deck, i.e. two circles, try to play them asap."));
+  helpText.emplace_back(
+      std::move("You can use small two-tile combos to block your "
+                "opponent's attempt for a Qwirkle."));
+
+  // Print Strings stored in Vector
+  std::cout << YELLOW_TEXT << " Help " << RESET_COLOUR << MEMO << std::endl;
+  std::cout << "-------" << std::endl;
+  for (std::string &helpPoint : helpText) {
+    std::cout << helpPoint << std::endl;
+  }
+};
+
+// ---------------------------------------------------------------
 /* int Help::displayHelp() {
   UserPrompt userPrompt;
   std::string help;
@@ -29,35 +54,39 @@ Help::~Help() {}
   return EXIT_SUCCESS;
 }; */
 
-void Help::helpList() {
-  this->head = nullptr;
-  this->tail = nullptr;
-  this->current = nullptr;
-};
+// void Help::helpList() {
+//   this->head = nullptr;
+//   this->tail = nullptr;
+//   this->current = nullptr;
+// };
 
-void Help::addToEndHelpList(std::string helpText) {
-  Help *temp = new Help();
-  temp->helpText = helpText;
-  temp->next = nullptr;
+// void Help::addToEndHelpList(std::string helpText) {
+//   Help *temp = new Help();
+//   temp->helpPoint = helpText;
+//   temp->next = nullptr;
 
-  if (this->head == nullptr) {
-    this->head = temp;
-    this->tail = temp;
-  } else {
-    this->tail->next = temp;
-    this->tail = this->tail->next;
-  }
-};
+//   if (this->head == nullptr) {
+//     this->head = temp;
+//     this->tail = temp;
+//   } else {
+//     this->tail->next = temp;
+//     this->tail = this->tail->next;
+//   }
+// };
 
-void Help::displayHelp() {
-  Help someHelp;
-  someHelp.addToEndHelpList("You can score double points when you add a tile that forms more than one line.");
-  someHelp.addToEndHelpList("Try not to make a line of 5 tiles because your opponents will add the 6th tile and score the bonus Qwirkle.");
-  someHelp.addToEndHelpList("When you have an identical pair of tiles in your deck, i.e. two circles, try to play them asap");
-  someHelp.addToEndHelpList("You can use small two-tile combos to block your opponent's attempt for a Qwirkle.");
-  
-};
-
+// void Help::printHelp() {
+//   if (this->head != nullptr) {
+//     Help *temp = head;
+//     while (temp->next != nullptr) {
+//       std::cout << temp->helpPoint << std::endl;
+//       temp = temp->next;
+//     }
+//     std::cout << temp->helpPoint << std::endl;
+//   } else {
+//     return;
+//   }
+// };
+//
 // std::string Help::getHelpText() { return *helpText; }
 
 // Help::~Help() {
@@ -88,7 +117,8 @@ void Help::displayHelp() {
 //   this->email = new std::string("default_email");
 // }
 
-// Student::Student(std::string name, std::string studentID, std::string email) {
+// Student::Student(std::string name, std::string studentID, std::string email)
+// {
 //   // constructor
 //   std::cout << "Creating a new Student Object: " << std::endl;
 //   this->name = new std::string(name);
