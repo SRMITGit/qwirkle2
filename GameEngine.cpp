@@ -9,6 +9,7 @@
 #include "Bag.h"
 #include "board.h"
 #include "menu.h"
+#include "userPrompt.h"
 #include <iostream>
 #include <stdio.h>
 #include <string>
@@ -16,6 +17,7 @@
 void addTilesToPlayerHand(int numTiles, Player player, Bag *gameBag);
 
 GameEngine::GameEngine(Player player1, Player player2) {
+  UserPrompt userPrompt;
   std::cout << "Creating a new GameEngine Object: " << std::endl;
   std::cout << "Using existing Player Object: " << std::endl;
   // this->player1 = player1.;
@@ -72,7 +74,7 @@ GameEngine::GameEngine(Player player1, Player player2) {
     std::cout
         << "Please Enter Board Co-Ordinates for the tile Row and then Column"
         << std::endl;
-    std::cout << SIGN << SPACE << "place ";
+    userPrompt.userPrompt();
     std::cin >> rowNumber >> colNumber;
     // std::cout << " at ";
     // std::cin >> colNumber;

@@ -9,7 +9,7 @@ www.ultraboardgames.com, viewed 18 August 2021,
 Help::Help() {}
 Help::~Help() {}
 
-int Help::displayHelp() {
+/* int Help::displayHelp() {
   UserPrompt userPrompt;
   std::string help;
   std::ifstream file("help.txt");
@@ -27,13 +27,100 @@ int Help::displayHelp() {
     std::cerr << "Oops, something went wrong! \n" << e.what() << "\n";
   }
   return EXIT_SUCCESS;
+}; */
+
+void Help::helpList() {
+  this->head = nullptr;
+  this->tail = nullptr;
+  this->current = nullptr;
 };
 
-/* int Help::helpPrompt() {
-std::cout << "Please enter input file name: ";
-std::string help;
-std::cin >> help;
-std::ifstream ist(help.c_str());
-// ist is an input stream for the file named name
-if (!ist) throw std::runtime_error("Could not open file");
-} */
+void Help::addToEndHelpList(std::string helpText) {
+  Help *temp = new Help();
+  temp->helpText = helpText;
+  temp->next = nullptr;
+
+  if (this->head == nullptr) {
+    this->head = temp;
+    this->tail = temp;
+  } else {
+    this->tail->next = temp;
+    this->tail = this->tail->next;
+  }
+};
+
+void Help::displayHelp() {
+  Help someHelp;
+  someHelp.addToEndHelpList("You can score double points when you add a tile that forms more than one line.");
+  someHelp.addToEndHelpList("Try not to make a line of 5 tiles because your opponents will add the 6th tile and score the bonus Qwirkle.");
+  someHelp.addToEndHelpList("When you have an identical pair of tiles in your deck, i.e. two circles, try to play them asap");
+  someHelp.addToEndHelpList("You can use small two-tile combos to block your opponent's attempt for a Qwirkle.");
+  
+};
+
+// std::string Help::getHelpText() { return *helpText; }
+
+// Help::~Help() {
+//   std::cout << "Deleting helpPoint maybe " << std::endl;
+//   delete helpPoint;
+// }
+
+// Help::Help(std::string helpText) {
+//   // default contructor
+//   this->helpText = new std::string(helpText);
+// }
+
+//
+//  Student.cpp
+//  Qwirkle
+//
+//  Created by Philip Beeby on 18/7/21.
+//
+
+// #include "Student.h"
+// // #include <iostream>
+// // #include <string>
+
+// Student::Student() {
+//   // default contructor
+//   this->name = new std::string("default_name");
+//   this->studentID = new std::string("default_StdID");
+//   this->email = new std::string("default_email");
+// }
+
+// Student::Student(std::string name, std::string studentID, std::string email) {
+//   // constructor
+//   std::cout << "Creating a new Student Object: " << std::endl;
+//   this->name = new std::string(name);
+//   this->studentID = new std::string(studentID);
+//   this->email = new std::string(email);
+// }
+// Student::~Student() {
+//   // destructor
+//   std::cout << "Deleting Student Object and Attributes: " << std::endl;
+//   delete name;
+//   delete studentID;
+//   delete email;
+// }
+// void Student::setName(std::string name) {
+//   // update the student name (prolly won't need this)
+//   *(this->name) = name;
+// }
+// void Student::setstudentID(std::string studentID) {
+//   // update the studentID (prolly won't need this)
+//   *(this->studentID) = studentID;
+// }
+// void Student::setEmail(std::string email) {
+//   // update the student email (prolly won't need this)
+//   *(this->email) = email;
+// }
+// std::string Student::getName() { return *name; }
+// std::string Student::getstudentID() { return *studentID; }
+// std::string Student::getEmail() { return *email; }
+
+// void Student::printStudentDetails() {
+//   // print out all of the attributes of a student
+//   std::cout << "Name: " << getName() << std::endl;
+//   std::cout << "Student ID: " << getstudentID() << std::endl;
+//   std::cout << "Email: " << getEmail() << std::endl;
+// }
