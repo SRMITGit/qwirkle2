@@ -31,3 +31,5 @@ std::string *Player::getPlayerNamePtr() {
 }
 
 void Player::printPlayerHand() { this->hand->printNodes(); }
+
+int Player::size() { return length; }

@@ -41,6 +41,7 @@ public:
   int getNumber();
   int size();
   int mainMenu();
+  int length = 0;
 
   Menu *get(int index);
   void add(Menu *menuList);

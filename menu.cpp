@@ -13,8 +13,6 @@
 #include "tileEmoji.h"
 #include "userPrompt.h"
 
-int length = 0;
-
 Menu::Menu() {}
 Menu::~Menu() {}
 Credits::Credits() {}
@@ -68,7 +66,7 @@ void Menu::selectionMenu() {
   Help displayHelp;
   int selected = -1;
 
-  while ((selected = Menu::mainMenu()) <= 4 && !std::cin.eof()) {
+  while ((selected = Menu::mainMenu()) <= 5 && !std::cin.eof()) {
     if (selected == 1) {
       std::cout << BLUE_TEXT << "Starting a New Game " << RED_TEXT << JOYSTICK
                 << RESET_COLOUR << std::endl;

@@ -15,13 +15,15 @@ Player p2("");
 void newGame::addPlayers() {
   std::string player1;
   std::string player2;
-  std::string player3;
-  std::string player4;
+  // std::string player3;
+  // std::string player4;
   // std::string name;
   std::vector<std::string> gameList;
   gameList.emplace_back("Starting a New Game");
   gameList.emplace_back("Enter a name for player 1");
   gameList.emplace_back("Enter a name for player 2");
+  // gameList.emplace_back("Enter a name for player 3");
+  // gameList.emplace_back("Enter a name for player 4");
 
   // Print Strings stored in Vector
   std::cout << " " << std::endl;
@@ -40,6 +42,20 @@ void newGame::addPlayers() {
       player2[i] = toupper(player2[i]);
     }
   }
+  // std::cout << " " << std::endl;
+  // std::cout << gameList[3] << std::endl;
+  // if (std::getline(std::cin >> std::ws, player3)) {
+  //   for (int i = 0; i < (int)player3.size(); ++i) {
+  //     player3[i] = toupper(player3[i]);
+  //   }
+  // }
+  // std::cout << " " << std::endl;
+  // std::cout << gameList[4] << std::endl;
+  // if (std::getline(std::cin >> std::ws, player4)) {
+  //   for (int i = 0; i < (int)player4.size(); ++i) {
+  //     player4[i] = toupper(player4[i]);
+  //   }
+  // }
   playerNames[0] = player1;
   playerNames[1] = player2;
   // playerNames[2] = player3;

@@ -25,11 +25,11 @@ public:
   std::string helpPoint;
   Help *next;
 
-  int helpPrompt();
+  // int helpPrompt();
 
-  // Getters and setters
-  std::string getHelpText();
-  void setHelpText();
+  // // Getters and setters
+  // std::string getHelpText();
+  // void setHelpText();
 
 private:
   // these have to be pointers so we can create class attributes on the heap

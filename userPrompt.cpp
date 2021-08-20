@@ -5,14 +5,29 @@ www.ultraboardgames.com, viewed 18 August 2021,
 
 #include "userPrompt.h"
 #include "help.h"
+#include "menu.h"
 #include "newGame.h"
 
 UserPrompt::UserPrompt() {}
 UserPrompt::~UserPrompt() {}
+// Help::Help() {}
+// Menu::Menu() {}
 
- void UserPrompt::userPrompt() {
-   std::cout << SIGN << SPACE;
- } 
+void UserPrompt::userPrompt() {
+  Help displayHelp;
+  Menu selectionMenu;
+  newGame saveGame;
+  std::string userChoice;
+  std::cout << SIGN << SPACE;
+  std::cin >> userChoice;
+  if (userChoice == "help") {
+    displayHelp.displayHelp();
+  } else if (userChoice == "save") {
+    saveGame.saveGame();
+  } else {
+    selectionMenu.selectionMenu();
+  }
+}
 
 // void UserPrompt::helpPrompt() {
 // // void UserPrompt::userPrompt() {
@@ -35,8 +50,6 @@ UserPrompt::~UserPrompt() {}
 //   } else {
 //     fileName = fileName + save;
 //   }
-
-
 
 //   std::cout << SIGN << SPACE;
 //   if (userResponse == "help") {

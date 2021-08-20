@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Player.h"
 
 class newGame {
 public:
@@ -21,8 +22,8 @@ public:
 
 private:
   std::string currentPlayer;
-  std::string playerNames[2];
+  std::string playerNames[4];
   int play;
-};
+};   
 
 #endif // ASSIGN2_NEWGAME_H
