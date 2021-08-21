@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <vector>
 
-#define MAX_BOARD_SIZE 26;
+#define MAX_BOARD_SIZE 26
 
 class Board {
 public:

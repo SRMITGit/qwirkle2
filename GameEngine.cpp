@@ -7,6 +7,7 @@
 
 #include "GameEngine.h"
 #include "Bag.h"
+#include "Player.h"
 #include "board.h"
 #include "menu.h"
 #include "userPrompt.h"
@@ -29,10 +30,10 @@ GameEngine::GameEngine(Player player1, Player player2) {
   gameTileBag->addTilesToBag(gameTileBag);
   // add tiles to player bags
   // add tiles to each players hand at the start of the game
-  addTilesToPlayerHand(6, player1, gameTileBag);
-  addTilesToPlayerHand(6, player2, gameTileBag);
+  addTilesToPlayerHand(MAX_TILES_IN_HAND, player1, gameTileBag);
+  addTilesToPlayerHand(MAX_TILES_IN_HAND, player2, gameTileBag);
   // generate a new board
-  Board *board = new Board(26, &std::cout);
+  Board *board = new Board(MAX_BOARD_SIZE, &std::cout);
   // board->display();
   // int *iPtr = &i;
   // Tile *tilePtr = &player1.getPlayerHand()->get(0);
@@ -58,7 +59,7 @@ GameEngine::GameEngine(Player player1, Player player2) {
 
   int i = 0;
 
-  while (i < 36) {
+  while (i < (MAX_BAG_TILES / 2)) {
     // show player 1 hand
     std::cout << player1.getPlayerName() << " ";
     player1.printPlayerHand();
@@ -76,21 +77,16 @@ GameEngine::GameEngine(Player player1, Player player2) {
         << std::endl;
     userPrompt.userPrompt();
     std::cin >> rowNumber >> colNumber;
-    // std::cout << " at ";
-    // std::cin >> colNumber;
     std::cout << "Tile will be placed on board at ROW:" << rowNumber
               << " COL: " << colNumber << std::endl;
     board->setTile(rowNumber, colNumber, playerTile);
     board->displayBoard();
 
-    // show player 1 hand
+    // show player 2 hand
     std::cout << player2.getPlayerName() << " ";
     player2.printPlayerHand();
 
     // ask player which tile they want to select from their hand
-    tileNumber = 0;
-    rowNumber = 0;
-    colNumber = 0;
     std::cout << "Please select a tile from your hand " << std::endl;
     // ask player where they want to place the tile on the board
     std::cin >> tileNumber;
@@ -104,11 +100,13 @@ GameEngine::GameEngine(Player player1, Player player2) {
               << " COL: " << colNumber << std::endl;
     board->setTile(rowNumber, colNumber, playerTile2);
     board->displayBoard();
-    i++;
+    // i++;
+    --i;
   }
 }
 
-GameEngine::GameEngine(std::string player_1_name, std::string player_2_name) {
+/* GameEngine::GameEngine(std::string player_1_name, std::string player_2_name)
+{
   // constructor
   std::cout << "Creating a new GameEngine Object: " << std::endl;
   std::cout << "Creating a new Player Object: " << std::endl;
@@ -120,7 +118,7 @@ GameEngine::GameEngine(std::string player_1_name, std::string player_2_name) {
   // Bag * newBag = new Bag();
   gameTileBag->addTilesToBag(gameTileBag);
   // add tiles to player bags
-}
+} */
 
 // Created by Guy - to add contents of saved to to game bag
 void GameEngine::gameBagFromFile(std::string player_1_name,
@@ -137,7 +135,7 @@ void GameEngine::gameBagFromFile(std::string player_1_name,
 
 GameEngine::~GameEngine() {
   // destructor
-  std::cout << "Deleting GameEngine Object and Attributes: " << std::endl;
+  // std::cout << "Deleting GameEngine Object and Attributes: " << std::endl;
   // delete player1;
   // delete player2;
   delete gameTileBag;
@@ -169,8 +167,7 @@ void addTilesToPlayerHand(int numTiles, Player player, Bag *gameBag) {
     player.getPlayerHand()->printNodes();
 
   } else {
-    std::cout << "The Bag is Empty cannot add tiles to plater hands: "
-              << std::endl;
+    std::cout << "The Bag is Empty - it's the last round! " << std::endl;
   }
 }
 // void GameEngine::setName(std::string name){

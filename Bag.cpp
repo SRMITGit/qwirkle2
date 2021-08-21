@@ -13,8 +13,6 @@ and placed in the players hand
 #include <random>
 #include <stdio.h>
 
-#define MAX_BAG_TILES 72
-
 Bag::Bag() {
   // constructor for a new bag of tiles
   this->gameBag = new LinkedList();
@@ -64,35 +62,35 @@ void Bag::loadGameTileBag(Bag *gameBag) {
   }
 }
 
-Colour Bag::randomColour() {
-  Colour randomColour;
-  // initialise ints for the colour and shape
-  int colourValue = -1;
-  int min = 1;
-  int max = 6;
-  std::random_device engine;
-  std::uniform_int_distribution<int> uniform_dist(min, max);
-  colourValue = uniform_dist(engine);
-  // random Colour
-  if (colourValue == (1)) {
-    randomColour = std::printf("R %s", RED_TEXT);  //\033[31m RED
-  } else if (colourValue == (2)) {
-    randomColour = std::printf("O %s", MAGENTA_TEXT);  //\033[35m ORANGE 
-  } else if (colourValue == (3)) {
-    randomColour = std::printf("Y %s", YELLOW_TEXT);  //\033[33m YELLOW
-  } else if (colourValue == (4)) {
-    randomColour = std::printf("G %s", GREEN_TEXT);  //\033[32m GREEN
-  } else if (colourValue == (5)) {
-    randomColour = std::printf("B %s", BLUE_TEXT);  //\033[34m  BLUE
-  } else {
-    randomColour = std::printf("P %s", CYAN_TEXT);  //\033[36m PURPLE 
-  }
-  // std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
-  return randomColour;
-  // return 0;
-}
+// Colour Bag::randomColour() {
+//   Colour randomColour;
+//   // initialise ints for the colour and shape
+//   int colourValue = -1;
+//   int min = 1;
+//   int max = 6;
+//   std::random_device engine;
+//   std::uniform_int_distribution<int> uniform_dist(min, max);
+//   colourValue = uniform_dist(engine);
+//   // random Colour
+//   if (colourValue == (1)) {
+//     randomColour = std::printf("R %s", RED_TEXT);  //\033[31m RED
+//   } else if (colourValue == (2)) {
+//     randomColour = std::printf("O %s", MAGENTA_TEXT);  //\033[35m ORANGE 
+//   } else if (colourValue == (3)) {
+//     randomColour = std::printf("Y %s", YELLOW_TEXT);  //\033[33m YELLOW
+//   } else if (colourValue == (4)) {
+//     randomColour = std::printf("G %s", GREEN_TEXT);  //\033[32m GREEN
+//   } else if (colourValue == (5)) {
+//     randomColour = std::printf("B %s", BLUE_TEXT);  //\033[34m  BLUE
+//   } else {
+//     randomColour = std::printf("P %s", CYAN_TEXT);  //\033[36m PURPLE 
+//   }
+//   // std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
+//   return randomColour;
+//   // return 0;
+// }
 
-/* Colour Bag::randomColour() {
+Colour Bag::randomColour() {
   Colour randomColour;
   // initialise ints for the colour and shape
   int colourValue = -1;
@@ -117,7 +115,7 @@ Colour Bag::randomColour() {
   }
   // std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
   return randomColour;
-} */
+}
 
 Shape Bag::randomShape() {
   Shape randomShape;

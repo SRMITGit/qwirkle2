@@ -1,8 +1,5 @@
-
 #include "LinkedList.h"
 #include "Tile.h"
-#include <iostream>
-#include <stdexcept>
 
 LinkedList::LinkedList() { this->head = nullptr; }
 
@@ -159,7 +156,8 @@ void LinkedList::printNodes() {
               << ",";
     // std::printf("%c%c", (char)current->tile->getTileColour(),
     // (char)current->tile->getTileShape());
-    ++count;
+    // ++count;
+    --count;
     current = current->next;
   }
   std::cout << std::endl;

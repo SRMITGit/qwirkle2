@@ -3,13 +3,13 @@
 #ifndef ASSIGN2_PLAYER_H
 #define ASSIGN2_PLAYER_H
 
-
 #include "LinkedList.h"
 #include <string>
 #include <ostream>
 
-class Player {
+#define MAX_TILES_IN_HAND 6
 
+class Player {
 public:
   std::string name;
   int score;

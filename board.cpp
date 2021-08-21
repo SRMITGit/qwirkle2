@@ -15,17 +15,12 @@ Board::Board(int size, std::ostream *outputStream) {
   }
 }
 
-Board::~Board() {
-  // destructor
-  std::cout
-      << "Calling Board Destructor - Deleting Board Object and Attributes: "
-      << std::endl;
-}
+Board::~Board() {}
 
 // expanding the board
 void Board::reSize() {
   int bsize = getSize();
-  if (bsize < 26) {
+  if (bsize < MAX_BOARD_SIZE) {
     for (int i = 0; i < getSize(); i++) {
       board[i].push_back(nullptr);
     }
@@ -158,6 +153,5 @@ void Board::setTile(int row, int col, Tile *tile) {
     board[row][col] = tile;
     std::cout << "Calling Set Tile Method: " << tile->getTileColour()
               << tile->getTileShape() << std::endl;
-    // tile->getTileColour;
   }
 }
