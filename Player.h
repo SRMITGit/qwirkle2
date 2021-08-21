@@ -13,11 +13,15 @@ class Player {
 public:
   std::string name;
   int score;
+  int length = 0;
   LinkedList *hand;
 
   Player(std::string name);
   Player(std::string name, LinkedList *hand);
   ~Player();
+
+  int size();
+
   // to return name stored in string type
   std::string getPlayerName();
   // to return memory address of string name
