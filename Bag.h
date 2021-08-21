@@ -3,6 +3,8 @@
 
 #include "LinkedList.h"
 
+#define MAX_BAG_TILES 72
+
 class Bag : public LinkedList {
 public:
   // default constructor

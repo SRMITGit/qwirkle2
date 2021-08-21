@@ -1,6 +1,9 @@
 #ifndef ASSIGN2_LINKEDLIST_H
 #define ASSIGN2_LINKEDLIST_H
 
+#include <iostream>
+#include <stdexcept>
+
 #include "Node.h"
 #include "Tile.h"
 

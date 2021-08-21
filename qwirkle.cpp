@@ -11,9 +11,9 @@
 #include "menu.h"
 #include "tileColours.h"
 #include "tileEmoji.h"
-#include <iostream>
+// #include <iostream>
 
-#define MAX_BAG_TILES 72
+// #define MAX_BAG_TILES 72
 
 // #define EXIT_SUCCESS    0
 
