@@ -1,7 +1,7 @@
 #ifndef ASSIGN2_NODE_H
 #define ASSIGN2_NODE_H
 
-#include "Tile.h"
+#include "tile.h"
 
 class Node {
 public:

@@ -1,10 +1,5 @@
-#include <fstream>
-#include <iostream>
-#include <string>
-// #include <cstring>
-#include "string.h"
-
 #include "loadGame.h"
+#include "string.h"
 
 loadGame::loadGame() {}
 loadGame::~loadGame() {}

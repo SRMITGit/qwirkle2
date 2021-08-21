@@ -1,4 +1,4 @@
-#include "Node.h"
+#include "node.h"
 
 Node::Node(Tile *tile, Node *next) {
   // initilise the tile and the next to be null

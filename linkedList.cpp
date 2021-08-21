@@ -1,5 +1,5 @@
-#include "LinkedList.h"
-#include "Tile.h"
+#include "linkedList.h"
+#include "tile.h"
 
 LinkedList::LinkedList() { this->head = nullptr; }
 

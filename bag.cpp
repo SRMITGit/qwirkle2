@@ -3,8 +3,8 @@ Creates a bag which is used to hold tiles which are than taken from the Bag
 and placed in the players hand
  */
 
-#include "Bag.h"
-#include "Tile.h"
+#include "bag.h"
+#include "tile.h"
 // #include "TileCodes.h"
 #include "loadGame.h"
 #include "tileColours.h"
@@ -14,7 +14,7 @@ and placed in the players hand
 #include <stdio.h>
 
 Bag::Bag() {
-  // constructor for a new bag of tiles
+  // constructor for a new Bag of tiles
   this->gameBag = new LinkedList();
 }
 
@@ -26,28 +26,28 @@ Bag::~Bag() {
 }
 
 void Bag::addTilesToBag(Bag *gameBag) {
-  // add all of the starting tiles to the bag
+  // add all of the starting tiles to the Bag
   int counter = 0;
-  // loop to add tiles to the bag
+  // loop to add tiles to the Bag
   while (counter < MAX_BAG_TILES) {
     Tile *randomTile = new Tile(randomColour(), randomShape());
-    // std::cout << "Adding Tile Numer: " << counter << " to the bag: " <<
+    // std::cout << "Adding Tile Numer: " << counter << " to the Bag: " <<
     // std::endl;
     gameBag->addFront(randomTile);
     ++counter;
   }
-  std::cout << "Bag is full, total Tiles in the bag:  " << gameBag->listSize()
+  std::cout << "Bag is full, total Tiles in the Bag:  " << gameBag->listSize()
             << std::endl;
 }
 
-// Created by Guy - trying to create a bag not randomly generated.
+// Created by Guy - trying to create a Bag not randomly generated.
 void Bag::loadGameTileBag(Bag *gameBag) {
   loadGame loadGame;
-  int counter = 0; // will need to count how many tile have already left the bag
+  int counter = 0; // will need to count how many tile have already left the Bag
   int counter2 = 0;
   int counter3 = 0;
 
-  // loop and add tiles to the bag
+  // loop and add tiles to the Bag
   while (counter < MAX_BAG_TILES) {
     for (int i = 0; i < 1; i++) {
       for (int j = 0; j < 1; j++) {
@@ -62,7 +62,7 @@ void Bag::loadGameTileBag(Bag *gameBag) {
   }
 }
 
-// Colour Bag::randomColour() {
+// Colour bag::randomColour() {
 //   Colour randomColour;
 //   // initialise ints for the colour and shape
 //   int colourValue = -1;

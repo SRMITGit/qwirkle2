@@ -1,6 +1,11 @@
 #ifndef ASSIGN2_CREDITS_H
 #define ASSIGN2_CREDITS_H
 
+#include <fstream>
+#include <iostream>
+#include <stdexcept>
+#include <string>
+
 class Credits {
 public:
   Credits();

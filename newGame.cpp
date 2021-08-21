@@ -1,10 +1,5 @@
 #include "newGame.h"
-// #include "Player.h"
-#include "GameEngine.h"
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <vector>
+#include "gameEngine.h"
 
 newGame::newGame() {}
 newGame::~newGame() {}

@@ -4,8 +4,8 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Node.h"
-#include "Tile.h"
+#include "node.h"
+#include "tile.h"
 
 class LinkedList {
 public:

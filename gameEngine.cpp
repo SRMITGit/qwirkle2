@@ -5,15 +5,13 @@
 //  Created by Philip Beeby on 18/7/21.
 //
 
-#include "GameEngine.h"
-#include "Bag.h"
-#include "Player.h"
+#include "gameEngine.h"
+#include "bag.h"
+#include "player.h"
 #include "board.h"
 #include "menu.h"
 #include "userPrompt.h"
-#include <iostream>
-#include <stdio.h>
-#include <string>
+
 
 void addTilesToPlayerHand(int numTiles, Player player, Bag *gameBag);
 

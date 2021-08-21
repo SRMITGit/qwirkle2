@@ -1,7 +1,6 @@
 // s3831786 Gordon Richard - RMIT
 
-#include "Player.h"
-#include <ostream>
+#include "player.h"
 
 Player::Player(std::string name) { this->name = name; }
 Player::~Player() {}

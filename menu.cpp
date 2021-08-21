@@ -1,5 +1,5 @@
 #include "menu.h"
-#include "GameEngine.h"
+#include "gameEngine.h"
 #include "credits.h"
 #include "help.h"
 #include "loadGame.h"

@@ -1,8 +1,3 @@
-#include <fstream>
-#include <iostream>
-#include <stdexcept>
-#include <string>
-
 #include "credits.h"
 #include "menu.h"
 

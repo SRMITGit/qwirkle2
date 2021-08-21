@@ -3,7 +3,7 @@
 #ifndef ASSIGN2_PLAYER_H
 #define ASSIGN2_PLAYER_H
 
-#include "LinkedList.h"
+#include "linkedList.h"
 #include <string>
 #include <ostream>
 

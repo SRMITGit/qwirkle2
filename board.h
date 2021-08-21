@@ -1,7 +1,7 @@
 #ifndef Board_h
 #define Board_h
 
-#include "Tile.h"
+#include "tile.h"
 #include <iostream>
 #include <stdio.h>
 #include <vector>

@@ -1,6 +1,5 @@
 
-#include "Tile.h"
-#include <iostream>
+#include "tile.h"
 
 // Constructor to create a new shape
 Tile::Tile(Colour colour, Shape shape) {

@@ -2,7 +2,7 @@
 #ifndef ASSIGN2_TILE_H
 #define ASSIGN2_TILE_H
 
-#include "TileCodes.h"
+// #include "tileCodes.h"
 #include <iostream>
 #include <ostream>
 

@@ -8,10 +8,11 @@
 #ifndef ASSIGN2_GAMEENGINE_H
 #define ASSIGN2_GAMEENGINE_H
 
-#include "Bag.h"
-#include "Player.h"
+#include "bag.h"
+#include "player.h"
 #include <stdio.h>
 #include <string>
+#include <iostream>
 
 class GameEngine {
 public:

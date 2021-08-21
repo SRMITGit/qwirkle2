@@ -1,7 +1,7 @@
 #ifndef ASSIGN2_BAG_H
 #define ASSIGN2_BAG_H
 
-#include "LinkedList.h"
+#include "linkedList.h"
 
 #define MAX_BAG_TILES 72
 

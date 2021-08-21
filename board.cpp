@@ -1,5 +1,5 @@
 #include "board.h"
-#include "Tile.h"
+#include "tile.h"
 #include <iostream>
 // #include <ostream>
 // creates grid and initialises with nullpointers.

@@ -1,6 +1,7 @@
 #ifndef ASSIGN2_LOADGAME_H
 #define ASSIGN2_LOADGAME_H
 
+#include <fstream>
 #include <iostream>
 #include <string>
 

@@ -35,24 +35,6 @@ Put backslash before "U" and three zeros after "U".
 #define GOODBYE "\U0001F44B"
 #define MEMO "\U0001F4DD"
 
-/* enum Shapes : unsigned string {
-  CIRCLE = '\U0001F535',
-  STAR_4 = 2,
-  DIAMOND = 3,
-  SQUARE = 4,
-  STAR_6 = 5,
-  CLOVER = 6
-}; */
-
-/* enum Shapes {
-  CIRCLE = 1,
-  STAR_4 = 2,
-  DIAMOND = 3,
-  SQUARE = 4,
-  STAR_6 = 5,
-  CLOVER = 6
-}; */
-
 class Emoji {
 public:
   Emoji();
@@ -64,8 +46,6 @@ public:
   ~Emoji();
 
   void tileEmoji();
-
-
 
   Emoji getEmojiList();
   int getNumber();
@@ -87,9 +67,5 @@ private:
   int *number;
   // std::vector<Emoji *> emojiList;
 };
-
-
-
-
 
 #endif // ASSIGN2_TILEEMOJI_H
