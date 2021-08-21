@@ -13,7 +13,6 @@ public:
   ~loadGame();
 
   void readFile();
-
   char getArrBag(int num);
 
 private:

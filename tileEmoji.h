@@ -60,7 +60,6 @@ public:
   void selectionEmoji();
   void clear();
   void quit();
-  // void newGame();
 
 private:
   Emoji *colour;

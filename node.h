@@ -5,8 +5,8 @@
 
 class Node {
 public:
-  Node(Tile *tile, Node *next);
   Node();
+  Node(Tile *tile, Node *next);
   Node(Node &other);
 
   Tile *tile;

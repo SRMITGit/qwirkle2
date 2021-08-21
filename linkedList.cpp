@@ -21,7 +21,7 @@ void LinkedList::addFront(Tile *tile) {
   // create a new Node Temp data
   try {
     Node *tmpNode = new Node(tile, nullptr);
-    //   // assign the value of passed in to the value of the new temp node
+    // assign the value of passed in to the value of the new temp node
     tmpNode->tile = tile;
     tmpNode->next = head;
     head = tmpNode;
@@ -110,12 +110,10 @@ unsigned int LinkedList::listSize() const {
     ++count;
     current = current->next;
   }
-
   return count;
 }
 
 Tile LinkedList::get(unsigned int index) const {
-
   unsigned int count = 0;
   Node *current = head;
   // need to make sure that value given is zero or greater
@@ -144,24 +142,17 @@ Tile LinkedList::get(unsigned int index) const {
 }
 
 void LinkedList::printNodes() {
-  //   {
-  //       if length of linked list is zero then loop will not run as head will
-  //       be current and this will be pointing to a nullptr
-  unsigned int count = 0;
   Node *current = head;
   //      // look unit we get to the tail node
   std::cout << "Your hand is " << std::endl;
   while (current != nullptr) {
     std::cout << current->tile->getTileColour() << current->tile->getTileShape()
-              << ",";
-    // std::printf("%c%c", (char)current->tile->getTileColour(),
-    // (char)current->tile->getTileShape());
-    // ++count;
-    --count;
+              << " | ";
+    /* std::printf("%c%c", current->tile->getTileColour(),
+    current->tile->getTileShape()); */
     current = current->next;
   }
   std::cout << std::endl;
-  //   }
 }
 
 void LinkedList::clear() {

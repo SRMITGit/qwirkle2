@@ -4,9 +4,8 @@ and placed in the players hand
  */
 
 #include "bag.h"
-#include "tile.h"
-// #include "TileCodes.h"
 #include "loadGame.h"
+#include "tile.h"
 #include "tileColours.h"
 #include "tileEmoji.h"
 #include <iostream>
@@ -18,12 +17,7 @@ Bag::Bag() {
   this->gameBag = new LinkedList();
 }
 
-Bag::~Bag() {
-  // destructor
-  std::cout << "Calling Bag Destructor - Deleting Bag Object and Attributes: "
-            << std::endl;
-  delete gameBag;
-}
+Bag::~Bag() { delete gameBag; }
 
 void Bag::addTilesToBag(Bag *gameBag) {
   // add all of the starting tiles to the Bag
@@ -31,8 +25,6 @@ void Bag::addTilesToBag(Bag *gameBag) {
   // loop to add tiles to the Bag
   while (counter < MAX_BAG_TILES) {
     Tile *randomTile = new Tile(randomColour(), randomShape());
-    // std::cout << "Adding Tile Numer: " << counter << " to the Bag: " <<
-    // std::endl;
     gameBag->addFront(randomTile);
     ++counter;
   }
@@ -75,7 +67,7 @@ void Bag::loadGameTileBag(Bag *gameBag) {
 //   if (colourValue == (1)) {
 //     randomColour = std::printf("R %s", RED_TEXT);  //\033[31m RED
 //   } else if (colourValue == (2)) {
-//     randomColour = std::printf("O %s", MAGENTA_TEXT);  //\033[35m ORANGE 
+//     randomColour = std::printf("O %s", MAGENTA_TEXT);  //\033[35m ORANGE
 //   } else if (colourValue == (3)) {
 //     randomColour = std::printf("Y %s", YELLOW_TEXT);  //\033[33m YELLOW
 //   } else if (colourValue == (4)) {
@@ -83,7 +75,7 @@ void Bag::loadGameTileBag(Bag *gameBag) {
 //   } else if (colourValue == (5)) {
 //     randomColour = std::printf("B %s", BLUE_TEXT);  //\033[34m  BLUE
 //   } else {
-//     randomColour = std::printf("P %s", CYAN_TEXT);  //\033[36m PURPLE 
+//     randomColour = std::printf("P %s", CYAN_TEXT);  //\033[36m PURPLE
 //   }
 //   // std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
 //   return randomColour;
@@ -113,7 +105,6 @@ Colour Bag::randomColour() {
   } else {
     randomColour = PURPLE;
   }
-  // std::cout << "Randomly-chosen colour: " << colourValue << std::endl;
   return randomColour;
 }
 
@@ -128,25 +119,24 @@ Shape Bag::randomShape() {
   shapeValue = uniform_dist(engine);
   // random shape
   if (shapeValue == (1)) {
-    randomShape = std::printf("%s", LARGE_BLUE_CIRCLE); //CIRCLE  \U0001F535
+    randomShape = std::printf("%s", LARGE_BLUE_CIRCLE); // CIRCLE  \U0001F535
     // std::printf(PURPLE_SQUARE, randomShape);
   } else if (shapeValue == (2)) {
-    randomShape = std::printf("%s", STAR); //STAR_4);  \U00002B50 
+    randomShape = std::printf("%s", STAR); // STAR_4);  \U00002B50
     // std::printf(STAR, randomShape);
   } else if (shapeValue == (3)) {
-    randomShape = std::printf("%s", BLUE_DIAMOND); //DIAMOND);  \U0001F537 
+    randomShape = std::printf("%s", BLUE_DIAMOND); // DIAMOND);  \U0001F537
     // std::printf(WHITE_FLOWER, randomShape);
   } else if (shapeValue == (4)) {
-    randomShape = std::printf("%s", PURPLE_SQUARE); //SQUARE);  \U0001F7EA 
+    randomShape = std::printf("%s", PURPLE_SQUARE); // SQUARE);  \U0001F7EA
     // std::printf(KANGAROO, randomShape);
   } else if (shapeValue == (5)) {
-    randomShape = std::printf("%s", KANGAROO); //STAR_6);  \U0001F998 
+    randomShape = std::printf("%s", KANGAROO); // STAR_6);  \U0001F998
     // std::printf(FIRE, randomShape);
   } else {
-    randomShape = std::printf("%s", FIRE); //CLOVER);  \U0001F525 
+    randomShape = std::printf("%s", FIRE); // CLOVER);  \U0001F525
     // std::printf(BLACK_SQUARE, randomShape);
   }
-  // std::cout << "Randomly-chosen shape: " << shapeValue << std::endl;
   return randomShape;
   // return 0;
 }

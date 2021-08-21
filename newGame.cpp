@@ -6,13 +6,15 @@ newGame::~newGame() {}
 
 Player p1("");
 Player p2("");
+// Player p3("");
+// Player p4("");
 
 void newGame::addPlayers() {
   std::string player1;
   std::string player2;
   // std::string player3;
   // std::string player4;
-  // std::string name;
+  std::string name;
   std::vector<std::string> gameList;
   gameList.emplace_back("Starting a New Game");
   gameList.emplace_back("Enter a name for player 1");
@@ -78,26 +80,35 @@ void newGame::startGameMsg() {
 }
 
 void newGame::gamePlay() {
-  // assigning player names to p1 and p2
   // adding new linked list for player hands
   LinkedList *p1Hand = new LinkedList();
   LinkedList *p2Hand = new LinkedList();
+  // LinkedList *p3Hand = new LinkedList();
+  // LinkedList *p4Hand = new LinkedList();
   Player p1(playerNames[0], p1Hand); // create new player with a hand
   Player p2(playerNames[1], p2Hand); // create a new player with a hand
-  // seeting sores to 0 for p1 and p2
+  // Player p3(playerNames[2], p3Hand);
+  // Player p4(playerNames[3], p4Hand);
+  // setting sores to 0
   p1.setPlayerScore(0);
   p2.setPlayerScore(0);
+  // p3.setPlayerScore(0);
+  // p4.setPlayerScore(0);
 
   std::cout << currentPlayer << ", it's your turn" << std::endl;
   std::cout << "Score for " << playerNames[0] << ":" << p1.getPlayerScore()
             << std::endl; // input score here
   std::cout << "Score for " << playerNames[1] << ":" << p2.getPlayerScore()
             << std::endl; // input score here
+  // std::cout << "Score for " << playerNames[2] << ":" << p3.getPlayerScore()
+  //           << std::endl;
+  // std::cout << "Score for " << playerNames[3] << ":" << p4.getPlayerScore()
+  //           << std::endl;
 
   // From Phil
   // GameEngine =
 
-  GameEngine *newGameEngine = new GameEngine(p1, p2);
+  GameEngine *newGameEngine = new GameEngine(p1, p2); // , p3, p4
   delete newGameEngine;
   // can call GameEngine here
 
@@ -106,11 +117,15 @@ void newGame::gamePlay() {
   if (playerNames[0] == getCurrentPlayer()) {
     std::cout << getCurrentPlayer() << "s hand: " << p1.getPlayerHand()
               << std::endl;
-  }
-
-  else if (playerNames[1] == getCurrentPlayer()) {
+  } else if (playerNames[1] == getCurrentPlayer()) {
     std::cout << getCurrentPlayer() << "s hand: " << p2.getPlayerHand()
               << std::endl;
+  // } else if (playerNames[2] == getCurrentPlayer()) {
+  //   std::cout << getCurrentPlayer() << "s hand: " << p3.getPlayerHand()
+  //             << std::endl;
+  // } else if (playerNames[3] == getCurrentPlayer()) {
+  //   std::cout << getCurrentPlayer() << "s hand: " << p4.getPlayerHand()
+  //             << std::endl;
   } else {
     std::cout << "We have a problem with names!!";
   }

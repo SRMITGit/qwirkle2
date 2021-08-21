@@ -62,7 +62,6 @@ public:
   void selectionTileColours();
   void clear();
   void quit();
-  // void newGame();
 
 private:
   TileColours *tileColour;

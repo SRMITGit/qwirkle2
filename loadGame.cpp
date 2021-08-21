@@ -1,5 +1,6 @@
 #include "loadGame.h"
 #include "string.h"
+#include "userPrompt.h"
 
 loadGame::loadGame() {}
 loadGame::~loadGame() {}
@@ -11,7 +12,7 @@ void loadGame::readFile() {
   int i;
 
   std::cout << "Enter name of file you want to load:" << std::endl;
-  std::cout << ">";
+  UserPrompt userPrompt;
   std::cin >> fileName;
   fileName = "Saved Games/" + fileName;
 
@@ -66,5 +67,5 @@ void loadGame::readFile() {
     std::cout << fileName << "does not exist" << std::endl;
 }
 
-// retrive contents of bag array - used in Bag.cpp
+// retrive contents of bag array - used in bag.cpp
 char loadGame::getArrBag(int num) { return arrBag[num]; }
