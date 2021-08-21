@@ -11,12 +11,6 @@
 // https://emojipedia.org/shortcodes/
 
 // Emoji
-/* Basically find the Unicode for the emoji you want to use
-A smiley face is U+1F600 😀
-Then, remove the "+" from it,
-U+1F600 -> U1F600.
-Put backslash before "U" and three zeros after "U".
-"\U0001F600" */
 #define LARGE_BLUE_CIRCLE "\U0001F535"
 #define RED_CIRCLE "\U0001F534"
 #define BLACK_CIRCLE "\U000026AB"
@@ -24,7 +18,6 @@ Put backslash before "U" and three zeros after "U".
 #define STAR "\U00002B50"
 #define BLUE_DIAMOND "\U0001F537"
 #define ORANGE_DIAMOND "\U0001F536"
-// #define DIAMOND "\U00002666"
 #define BLACK_SQUARE "\U00002B1B"
 #define WHITE_LARGE_SQUARE "\U0002B1C"
 #define PURPLE_SQUARE "\U0001F7EA"
@@ -34,6 +27,8 @@ Put backslash before "U" and three zeros after "U".
 #define JOYSTICK "\U0001F579"
 #define GOODBYE "\U0001F44B"
 #define MEMO "\U0001F4DD"
+
+enum Shapes { CIRCLE = 1, STAR_4, DIAMOND, SQUARE, STAR_6, CLOVER };
 
 class Emoji {
 public:

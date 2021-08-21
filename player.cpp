@@ -16,6 +16,11 @@ void Player::addPlayerScore(int score) { this->score += score; }
 
 LinkedList *Player::getPlayerHand() { return hand; }
 
+Tile *Player::getTileColour() { return Colour; }
+Tile *Player::getTileShape() { return Shape; }
+
+Bag *Player::getGameTileBag() {return gameTileBag;}
+
 int *Player::getPlayerScorePtr() {
   int *scorePtr = &score;
   return scorePtr;

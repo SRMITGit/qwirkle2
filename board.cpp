@@ -1,7 +1,6 @@
 #include "board.h"
 #include "tile.h"
-#include <iostream>
-// #include <ostream>
+
 // creates grid and initialises with nullpointers.
 
 Board::Board(int size, std::ostream *outputStream) {
@@ -20,6 +19,7 @@ Board::~Board() {}
 // expanding the board
 void Board::reSize() {
   int bsize = getSize();
+  // changes to MAX_BOARD_SIZE
   if (bsize < MAX_BOARD_SIZE) {
     for (int i = 0; i < getSize(); i++) {
       board[i].push_back(nullptr);
@@ -29,47 +29,6 @@ void Board::reSize() {
       row.push_back(nullptr);
     }
     board.push_back(row);
-  }
-}
-
-// printing the grid to the display
-void Board::display() {
-  int n = (int)board.size();
-  *outputStream << "   ";
-
-  for (int k = 0; k < n; k++)
-    if (k < 10) {
-      *outputStream << k << "  ";
-    } else
-      *outputStream << k << " ";
-  *outputStream << "\n  ";
-  for (int t = 0; t < n; t++)
-    *outputStream << "---";
-  *outputStream << std::endl;
-
-  // loops to print the vector of vectors
-  for (int i = 0; i < n; i++) {
-    *outputStream << (char)('A' + i) << " |";
-    for (int j = 0; j < n; j++) {
-      if (board[i][j] != nullptr) {
-        // std::cout << "First if Statement: " << std::endl;
-        if (this->outputStream != &std::cout) {
-
-          *outputStream << this->getTile(i, j)->getTileColour()
-                        << this->getTile(i, j)->getTileShape();
-          // std::cout << "Second if Statement: " << std::endl;
-        }
-        // printTile isn't doing anything yet
-        /* else
-        {
-            this->getTile(i, j)->printTile();
-        } */
-        *outputStream << "|";
-      } else
-        *outputStream << "  |";
-      // std::cout << "First ELSE Statement: " << std::endl;
-    }
-    *outputStream << std::endl;
   }
 }
 
@@ -105,9 +64,7 @@ void Board::displayBoard() {
 
         std::cout << "|  ";
         col_counter = col_counter + 1;
-      }
-
-      else {
+      } else {
         std::cout << "|" << board[row_counter][col_counter]->getTileColour()
                   << board[row_counter][col_counter]->getTileShape();
         col_counter = col_counter + 1;
@@ -151,7 +108,5 @@ Tile *Board::getTile(int row, int col) {
 void Board::setTile(int row, int col, Tile *tile) {
   if (row < getSize() && col < getSize()) {
     board[row][col] = tile;
-    std::cout << "Calling Set Tile Method: " << tile->getTileColour()
-              << tile->getTileShape() << std::endl;
   }
 }

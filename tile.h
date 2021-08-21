@@ -1,8 +1,6 @@
-
 #ifndef ASSIGN2_TILE_H
 #define ASSIGN2_TILE_H
 
-// #include "tileCodes.h"
 #include <iostream>
 #include <ostream>
 
@@ -22,9 +20,6 @@ public:
   // getters
   Colour getTileColour();
   Shape getTileShape();
-
-  void printTile();
-  // void printColoured();
 
 private:
   Colour *colour;

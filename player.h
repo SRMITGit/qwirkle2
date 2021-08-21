@@ -4,6 +4,9 @@
 #define ASSIGN2_PLAYER_H
 
 #include "linkedList.h"
+#include "board.h"
+#include "tile.h"
+#include "bag.h"
 #include <string>
 #include <ostream>
 
@@ -15,6 +18,9 @@ public:
   int score;
   int length = 0;
   LinkedList *hand;
+  Tile *Colour, *Shape;
+  Bag *gameTileBag;
+
 
   Player(std::string name);
   Player(std::string name, LinkedList *hand);
@@ -35,6 +41,9 @@ public:
   void printPlayerHand();
 
   LinkedList *getPlayerHand();
+  Bag *getGameTileBag();
+  Tile *getTileColour();
+  Tile *getTileShape();
 
   // to return player score stored in int type
   int getPlayerScore();

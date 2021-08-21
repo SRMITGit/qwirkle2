@@ -1,4 +1,5 @@
 #include "newGame.h"
+#include "board.h"
 #include "gameEngine.h"
 
 newGame::newGame() {}
@@ -111,23 +112,24 @@ void newGame::gamePlay() {
   GameEngine *newGameEngine = new GameEngine(p1, p2); // , p3, p4
   delete newGameEngine;
   // can call GameEngine here
-
   // fetch board here
   // Check to see who current player is and display current player hand
-  if (playerNames[0] == getCurrentPlayer()) {
-    std::cout << getCurrentPlayer() << "s hand: " << p1.getPlayerHand()
-              << std::endl;
-  } else if (playerNames[1] == getCurrentPlayer()) {
-    std::cout << getCurrentPlayer() << "s hand: " << p2.getPlayerHand()
-              << std::endl;
-  // } else if (playerNames[2] == getCurrentPlayer()) {
-  //   std::cout << getCurrentPlayer() << "s hand: " << p3.getPlayerHand()
-  //             << std::endl;
-  // } else if (playerNames[3] == getCurrentPlayer()) {
-  //   std::cout << getCurrentPlayer() << "s hand: " << p4.getPlayerHand()
-  //             << std::endl;
-  } else {
-    std::cout << "We have a problem with names!!";
+  try {
+    if (playerNames[0] == getCurrentPlayer()) {
+      std::cout << getCurrentPlayer() << "s hand: " << p1.getPlayerHand()
+                << std::endl;
+    } else if (playerNames[1] == getCurrentPlayer()) {
+      std::cout << getCurrentPlayer() << "s hand: " << p2.getPlayerHand()
+                << std::endl;
+      // } else if (playerNames[2] == getCurrentPlayer()) {
+      //   std::cout << getCurrentPlayer() << "s hand: " << p3.getPlayerHand()
+      //             << std::endl;
+      // } else if (playerNames[3] == getCurrentPlayer()) {
+      //   std::cout << getCurrentPlayer() << "s hand: " << p4.getPlayerHand()
+      //             << std::endl;
+    }
+  } catch (const std::runtime_error &e) {
+    std::cerr << "We have a problem with names!! \n" << e.what() << "\n";
   }
 }
 
@@ -161,13 +163,16 @@ void newGame::saveGame() {
   MyWriteFile << playerNames[0] << "\n";
   MyWriteFile << p1.getPlayerScore() << "\n";
   MyWriteFile << p1.getPlayerHand() << "\n";
+  MyWriteFile << "Player 1 Game Bag"
+              << "\n";
+  MyWriteFile << p1.getGameTileBag() << "\n";
+
   MyWriteFile << playerNames[1] << "\n";
   MyWriteFile << p2.getPlayerScore() << "\n";
   MyWriteFile << p2.getPlayerHand() << "\n";
-  MyWriteFile << "current board state goes here"
+  MyWriteFile << "Player 2 Game Bag"
               << "\n";
-  MyWriteFile << "Tile bag content goes here"
-              << "\n";
+  MyWriteFile << p2.getGameTileBag() << "\n";
   MyWriteFile << getCurrentPlayer() << "\n";
   // close file
   MyWriteFile.close();

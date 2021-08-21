@@ -19,6 +19,7 @@ GameEngine::GameEngine(Player player1, Player player2) {
   gameTileBag->addTilesToBag(gameTileBag);
   // add tiles to player bags
   // add tiles to each players hand at the start of the game
+  // added MAX_TILES_IN_HAND
   addTilesToPlayerHand(MAX_TILES_IN_HAND, player1, gameTileBag);
   addTilesToPlayerHand(MAX_TILES_IN_HAND, player2, gameTileBag);
   // generate a new board
@@ -38,13 +39,14 @@ GameEngine::GameEngine(Player player1, Player player2) {
     // ask player where they want to place the tile on the board
     std::cin >> tileNumber;
     Tile *playerTile = new Tile(player1.getPlayerHand()->get(tileNumber));
-    std::cout
-        << "Please Enter Board Co-Ordinates for the tile Row and then Column"
-        << std::endl;
-    userPrompt.userPrompt();
-    std::cin >> rowNumber >> colNumber;
-    std::cout << "Tile will be placed on board at ROW:" << rowNumber
-              << " COL: " << colNumber << std::endl;
+    std::cout << "Please enter board co-ordinates for the tile" << GREEN_TEXT
+              << " ROW" << RESET_COLOUR << " and then " << YELLOW_TEXT
+              << "COLUMN " << RESET_COLOUR << "\n>";
+    std::cin >> rowNumber;
+    std::cin >> colNumber;
+    std::cout << "Tile will be placed on board at " << GREEN_TEXT << "ROW "
+              << RESET_COLOUR << rowNumber << YELLOW_TEXT << " COLUMN "
+              << RESET_COLOUR << colNumber << std::endl;
     board->setTile(rowNumber, colNumber, playerTile);
     board->displayBoard();
 
@@ -53,19 +55,22 @@ GameEngine::GameEngine(Player player1, Player player2) {
     player2.printPlayerHand();
 
     // ask player which tile they want to select from their hand
-    std::cout << "Please select a tile from your hand " << std::endl;
+    std::cout << "Please select a tile from your hand \n> ";
     // ask player where they want to place the tile on the board
     std::cin >> tileNumber;
     Tile *playerTile2 = new Tile(player2.getPlayerHand()->get(tileNumber));
-    std::cout
-        << "Please Enter Board Co-Ordinates for the tile Row and then Column"
-        << std::endl;
+    std::cout << "Please enter board co-ordinates for the tile" << GREEN_TEXT
+              << " ROW" << RESET_COLOUR << " and then " << YELLOW_TEXT
+              << "COLUMN " << RESET_COLOUR << "\n>";
     std::cin >> rowNumber;
     std::cin >> colNumber;
-    std::cout << "Tile will be placed on board at ROW:" << rowNumber
-              << " COL: " << colNumber << std::endl;
+    std::cout << "Tile will be placed on board at " << GREEN_TEXT << "ROW "
+              << RESET_COLOUR << rowNumber << YELLOW_TEXT << " COLUMN "
+              << RESET_COLOUR << colNumber << std::endl;
     board->setTile(rowNumber, colNumber, playerTile2);
     board->displayBoard();
+    // Comment this line in to show saving a game
+    // userPrompt.textPrompt();
     --i;
   }
 }
@@ -75,42 +80,35 @@ void GameEngine::gameBagFromFile(std::string player_1_name,
                                  std::string player_2_name) {
   this->player1 = new Player(player_1_name);
   this->player2 = new Player(player_2_name);
-  std::cout << "Creating a game bag: " << std::endl;
   this->gameTileBag = new Bag();
-  std::cout << "Adding Tiles to the game bag: " << std::endl;
-  // Bag * newBag = new Bag();
   gameTileBag->loadGameTileBag(gameTileBag);
-  // add tiles to player bags
 }
 
 GameEngine::~GameEngine() { delete gameTileBag; }
 
 void GameEngine::addTilesToPlayerHand(int numTiles, Player player,
                                       Bag *gameBag) {
-  // int numStartingTiles = 6;
   int loopCounter = 0;
-  if (gameBag->listSize() != 0) {
-    // check size of bag
-    while (loopCounter < numTiles) {
-      Tile *newFrontBagTile = new Tile(gameBag->get(0));
-      player.getPlayerHand()->addBack(newFrontBagTile);
-      std::cout << "Adding Tile to Players Hand: "
-                << newFrontBagTile->getTileColour()
-                << newFrontBagTile->getTileShape() << std::endl;
-      /* std::printf("Adding Tile to Players Hand: %d %d",
-                  newFrontBagTile->getTileColour(),
-                  newFrontBagTile->getTileShape()); */
-      // remove the tile from the front of the bag
-      gameBag->removeFront();
-      ++loopCounter;
+  try {
+    if (gameBag->listSize() != 0) {
+      // check size of bag
+      while (loopCounter < numTiles) {
+        Tile *newFrontBagTile = new Tile(gameBag->get(0));
+        player.getPlayerHand()->addBack(newFrontBagTile);
+        /* std::cout << "Adding Tile to Players Hand: "
+                  << newFrontBagTile->getTileColour()
+                  << newFrontBagTile->getTileShape() << std::endl; */
+        /* std::printf("Adding Tile to Players Hand: %d %d",
+                    newFrontBagTile->getTileColour(),
+                    newFrontBagTile->getTileShape()); */
+        // remove the tile from the front of the bag
+        gameBag->removeFront();
+        ++loopCounter;
+      }
+      player.getPlayerHand()->printNodes();
     }
-    std::cout << "Finished Adding Tiles to Player's Hand: "
-              << player.getPlayerName() << std::endl;
-    std::cout << "Player: " << player.getPlayerName()
-              << " Hand now looks like this: " << std::endl;
-    player.getPlayerHand()->printNodes();
-
-  } else {
-    std::cout << "The Bag is Empty - it's the last round! " << std::endl;
+  } catch (const std::runtime_error &e) {
+    std::cerr << "The Bag is Empty - it's the last round! \n"
+              << e.what() << "\n";
   }
 }

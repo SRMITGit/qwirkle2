@@ -1,5 +1,5 @@
-#ifndef Board_h
-#define Board_h
+#ifndef BOARD_H
+#define BOARD_H
 
 #include "tile.h"
 #include <iostream>
@@ -12,26 +12,22 @@ class Board {
 public:
   std::vector<std::vector<Tile *>> board;
 
+  Board();
   Board(int size, std::ostream *outputStream);
-
   ~Board();
 
-  // Board();
-
   void display();
-
   void displayBoard();
 
   int getSize();
-
-  Tile *getTile(int row, int col);
+  int getDisplayBoard();
 
   void setTile(int row, int col, Tile *tile);
-
-  std::string toString();
-
   void reSize();
 
+  std::string toString();
   std::ostream *outputStream = &std::cout;
+
+  Tile *getTile(int row, int col);
 };
-#endif /* Board_h */
+#endif // BOARD_H
