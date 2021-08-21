@@ -1,8 +1,3 @@
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <vector>
-
 #include "GameEngine.h"
 #include "credits.h"
 #include "help.h"
@@ -34,12 +29,11 @@ int Menu::mainMenu() {
   // Declaring Vector of String type
   // Strings can be added at any time with emplace_back
   std::vector<std::string> menuList;
-  menuList.reserve(5);
+  menuList.reserve(4);
   menuList.emplace_back(std::move("1. New Game"));
   menuList.emplace_back(std::move("2. Load Game"));
   menuList.emplace_back(std::move("3. Credits"));
-  menuList.emplace_back(std::move("4. Help"));
-  menuList.emplace_back(std::move("5. Quit"));
+  menuList.emplace_back(std::move("4. Quit"));
 
   // Print Strings stored in Vector
   std::cout << GREEN_TEXT << "Menu" << RESET_COLOUR << std::endl;
@@ -48,6 +42,7 @@ int Menu::mainMenu() {
     std::cout << value << std::endl;
   }
   userPrompt.userPrompt();
+  userPrompt.textPrompt();
 
   int selected = 0;
   std::string input;
@@ -66,7 +61,7 @@ void Menu::selectionMenu() {
   Help displayHelp;
   int selected = -1;
 
-  while ((selected = Menu::mainMenu()) <= 5 && !std::cin.eof()) {
+  while ((selected = Menu::mainMenu()) <= 4 && !std::cin.eof()) {
     if (selected == 1) {
       std::cout << BLUE_TEXT << "Starting a New Game " << RED_TEXT << JOYSTICK
                 << RESET_COLOUR << std::endl;
@@ -78,8 +73,6 @@ void Menu::selectionMenu() {
       std::cout << "The Team!" << std::endl;
       printCredits.printCredits();
     } else if (selected == 4) {
-      displayHelp.displayHelp();
-    } else if (selected == 5) {
       std::cout << " " << std::endl;
       Menu::quit();
     } else {

@@ -15,8 +15,7 @@ public:
   UserPrompt();
   ~UserPrompt();
   void userPrompt();
-   void helpPrompt();
- 
+  void textPrompt();
 };
 
 #endif // ASSIGN2_USERPROMPT_H
