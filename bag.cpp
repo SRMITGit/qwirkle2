@@ -8,9 +8,6 @@ and placed in the players hand
 #include "tile.h"
 #include "tileColours.h"
 #include "tileEmoji.h"
-#include <iostream>
-#include <random>
-#include <stdio.h>
 
 Bag::Bag() {
   // constructor for a new Bag of tiles
@@ -22,7 +19,7 @@ Bag::~Bag() { delete gameBag; }
 void Bag::addTilesToBag(Bag *gameBag) {
   // add all of the starting tiles to the Bag
   int counter = 0;
-  // loop to add tiles to the Bag 
+  // loop to add tiles to the Bag
   // changed to MAX_BAG_TILES
   while (counter < MAX_BAG_TILES) {
     Tile *randomTile = new Tile(randomColour(), randomShape());

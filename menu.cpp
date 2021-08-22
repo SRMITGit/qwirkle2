@@ -29,7 +29,7 @@ int Menu::mainMenu() {
   // Declaring Vector of String type
   // Strings can be added at any time with emplace_back
   std::vector<std::string> menuList;
-  menuList.reserve(4);
+  menuList.reserve(MAX_MENU_SIZE);
   menuList.emplace_back(std::move("1. New Game"));
   menuList.emplace_back(std::move("2. Load Game"));
   menuList.emplace_back(std::move("3. Credits"));

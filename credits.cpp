@@ -16,7 +16,7 @@ int Credits::printCredits() {
       throw std::runtime_error("Could not open file");
     }
   } catch (std::exception &e) {
-    std::cerr << "Oops, something went wrong! \n" << e.what() << "\n";
+    std::cerr << "Oops, can't seem to find that file! \n> " << e.what() << "\n";
   }
   return EXIT_SUCCESS;
 };

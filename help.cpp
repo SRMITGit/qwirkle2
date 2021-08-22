@@ -12,23 +12,20 @@ Help::~Help() {}
 
 void Help::displayHelp() {
   std::vector<std::string> helpText;
+  helpText.emplace_back("You can score double points when you add a tile "
+                        "that forms more than one line.");
   helpText.emplace_back(
-      std::move("You can score double points when you add a tile "
-                "that forms more than one line."));
-  helpText.emplace_back(
-      std::move("Try not to make a line of 5 tiles because your opponents will "
-                "add the 6th tile and score the bonus Qwirkle."));
-  helpText.emplace_back(
-      std::move("When you have an identical pair of tiles in your "
-                "deck, i.e. two circles, try to play them asap."));
-  helpText.emplace_back(
-      std::move("You can use small two-tile combos to block your "
-                "opponent's attempt for a Qwirkle."));
+      "Try not to make a line of 5 tiles because your opponents will "
+      "add the 6th tile and score the bonus Qwirkle.");
+  helpText.emplace_back("When you have an identical pair of tiles in your "
+                        "deck, i.e. two circles, try to play them asap.");
+  helpText.emplace_back("You can use small two-tile combos to block your "
+                        "opponent's attempt for a Qwirkle.");
 
   // Print Strings stored in Vector
   std::cout << YELLOW_TEXT << " Help " << RESET_COLOUR << MEMO << std::endl;
   std::cout << "-------" << std::endl;
-  for (std::string &helpPoint : helpText) {
+  for (const std::string &helpPoint : helpText) {
     std::cout << helpPoint << std::endl;
   }
 };

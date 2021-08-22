@@ -1,6 +1,10 @@
 #ifndef ASSIGN2_TILEEMOJI_H
 #define ASSIGN2_TILEEMOJI_H
 
+#include <iostream>
+#include <string>
+#include <vector>
+
 // Sources to make Terminal Colours
 // https://stackoverflow.com/questions/9158150/colored-output-in-c
 // https://gist.github.com/RabaDabaDoba/145049536f815903c79944599c6f952a
@@ -59,7 +63,7 @@ public:
 private:
   Emoji *colour;
   int *number;
-  // std::vector<Emoji *> emojiList;
+  std::vector<Emoji *> emojiList;
 };
 
 #endif // ASSIGN2_TILEEMOJI_H

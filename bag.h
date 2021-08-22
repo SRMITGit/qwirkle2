@@ -2,6 +2,9 @@
 #define ASSIGN2_BAG_H
 
 #include "linkedList.h"
+#include <iostream>
+#include <random>
+#include <stdio.h>
 
 #define MAX_BAG_TILES 72
 
