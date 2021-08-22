@@ -30,6 +30,9 @@ public:
   /* Clear all of the nodes in the linked list */
   void clear();
 
+  /* Search for a tile in the linked list */
+  int searchForTile(Tile *tile);
+
   /* print the data of all of the Nodes in the Linked List */
   void printNodes();
 

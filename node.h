@@ -11,6 +11,7 @@ public:
 
   Tile *tile;
   Node *next;
+  int tileSearch;
 };
 
 #endif // ASSIGN2_NODE_H

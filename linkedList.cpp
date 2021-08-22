@@ -141,9 +141,32 @@ Tile LinkedList::get(unsigned int index) const {
   return *returnValue;
 }
 
+int LinkedList::searchForTile(Tile *tile) {
+  Node *current = head;
+  int i = 0;
+  try {
+    current->tile = tile;
+    current->next = nullptr;
+    while (current->next != nullptr) {
+      if (current->tileSearch == current->tile->getTileColour() &&
+          current->tile->getTileShape()) {
+        std::cout << "Sorry, can't add " << GREEN_TEXT << tile << RESET_COLOUR
+                  << " to that position: " << MAGENTA_TEXT << i << RESET_COLOUR
+                  << std::endl;
+        return i;
+      }
+      ++i;
+      current = current->next;
+    }
+  } catch (std::exception &e) {
+    std::cerr << "Oops, something went wrong! \n" << e.what() << "\n";
+  }
+  return i;
+}
+
 void LinkedList::printNodes() {
   Node *current = head;
-  //      // look unit we get to the tail node
+  // look unit we get to the tail node
   std::cout << "Your hand is " << std::endl;
   while (current != nullptr) {
     std::cout << current->tile->getTileColour() << current->tile->getTileShape()
