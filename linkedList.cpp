@@ -66,7 +66,7 @@ void LinkedList::removeFront() {
       delete tmpNode;
     }
   } catch (const std::runtime_error &e) {
-    std::cerr << "Oops, remove from the front! \n" << e.what() << "\n";
+    std::cerr << "Oops, can't remove from the front! \n" << e.what() << "\n";
   }
 }
 
@@ -74,7 +74,7 @@ void LinkedList::removeBack() { // https://www.youtube.com/watch?v=i3b3O7slIzk
   // case 1 - Empty Linked List
   try {
     if (this->head == nullptr) {
-      std::cout << "List was empty so cannot remove from BACK!" << std::endl;
+      throw std::out_of_range("List was empty so cannot remove from BACK!");
       return;
     } else {
       Node *current = head;  // ptr
@@ -97,7 +97,7 @@ void LinkedList::removeBack() { // https://www.youtube.com/watch?v=i3b3O7slIzk
       }
     }
   } catch (const std::runtime_error &e) {
-    std::cerr << "Oops, remove from the back! \n" << e.what() << "\n";
+    std::cerr << "Oops, can't remove from the back! \n" << e.what() << "\n";
   }
 }
 

@@ -8,22 +8,25 @@
 
 #include "player.h"
 
+#define MAX_NUM_PLAYERS 4
+
 class newGame {
 public:
   newGame();
-  void addPlayers();
+  ~newGame();
+
   std::string getCurrentPlayer();
+
+  void addPlayers();
   void switchPlayer();
   void startGameMsg();
   void runGame();
   void gamePlay();
   void saveGame();
 
-  ~newGame();
-
 private:
   std::string currentPlayer;
-  std::string playerNames[4];
+  std::string playerNames[MAX_NUM_PLAYERS];
   int play;
 };
 

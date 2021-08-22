@@ -6,6 +6,8 @@
 #include <string>
 #include <vector>
 
+#define MAX_MENU_SIZE 4
+
 class Menu {
 public:
   Menu();
@@ -17,6 +19,8 @@ public:
   ~Menu();
 
   Menu getMenuList();
+  Menu setMenuSize(int size);
+  Menu getMenuSize();
   int getNumber();
   int size();
   int mainMenu();

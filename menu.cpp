@@ -13,7 +13,7 @@ Menu::~Menu() {}
 Credits::Credits() {}
 
 // Returns the current size of the Menu
-int Menu::size() { return length; }
+int Menu::size() { return MAX_MENU_SIZE; }
 
 // Quits the entire program
 void Menu::quit() {
@@ -38,8 +38,10 @@ int Menu::mainMenu() {
   // Print Strings stored in Vector
   std::cout << GREEN_TEXT << "Menu" << RESET_COLOUR << std::endl;
   std::cout << "-------" << std::endl;
-  for (std::string &value : menuList) {
-    std::cout << value << std::endl;
+  /* Programiz n.d., C++ printf() - C++ Standard Library, www.programiz.com, viewed 18 August 2021, 
+  <https://www.programiz.com/cpp-programming/library-function/cstdio/printf>. */  
+  for (const std::string &menuChoice : menuList) {
+    std::cout << menuChoice << std::endl;
   }
   userPrompt.userPrompt();
   userPrompt.textPrompt();
@@ -61,7 +63,7 @@ void Menu::selectionMenu() {
   Help displayHelp;
   int selected = -1;
 
-  while ((selected = Menu::mainMenu()) <= 4 && !std::cin.eof()) {
+  while ((selected = Menu::mainMenu()) <= size() && !std::cin.eof()) {
     if (selected == 1) {
       std::cout << BLUE_TEXT << "Starting a New Game " << RED_TEXT << JOYSTICK
                 << RESET_COLOUR << std::endl;

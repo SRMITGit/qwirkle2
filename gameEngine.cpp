@@ -34,17 +34,18 @@ GameEngine::GameEngine(Player player1, Player player2) {
     player1.printPlayerHand();
 
     // ask player which tile they want to select from their hand
-    int tileNumber = 0, rowNumber = 0, colNumber = 0;
+    int tileNumber = 1, rowNumber = 0, colNumber = 0;
     std::cout << "Please select a tile from your hand \n> ";
     // ask player where they want to place the tile on the board
     std::cin >> tileNumber;
     Tile *playerTile = new Tile(player1.getPlayerHand()->get(tileNumber));
     std::cout << "Please enter board co-ordinates for the tile" << GREEN_TEXT
               << " ROW" << RESET_COLOUR << " and then " << YELLOW_TEXT
-              << "COLUMN " << RESET_COLOUR << "\n>";
+              << "COLUMN " << RESET_COLOUR << "\n> ";
     std::cin >> rowNumber;
     std::cin >> colNumber;
-    std::cout << "Tile will be placed on board at " << GREEN_TEXT << "ROW "
+    std::cout << "Tile " << BLUE_TEXT << tileNumber << RESET_COLOUR
+              << " will be placed on board at " << GREEN_TEXT << "ROW "
               << RESET_COLOUR << rowNumber << YELLOW_TEXT << " COLUMN "
               << RESET_COLOUR << colNumber << std::endl;
     board->setTile(rowNumber, colNumber, playerTile);
@@ -61,10 +62,11 @@ GameEngine::GameEngine(Player player1, Player player2) {
     Tile *playerTile2 = new Tile(player2.getPlayerHand()->get(tileNumber));
     std::cout << "Please enter board co-ordinates for the tile" << GREEN_TEXT
               << " ROW" << RESET_COLOUR << " and then " << YELLOW_TEXT
-              << "COLUMN " << RESET_COLOUR << "\n>";
+              << "COLUMN " << RESET_COLOUR << "\n> ";
     std::cin >> rowNumber;
     std::cin >> colNumber;
-    std::cout << "Tile will be placed on board at " << GREEN_TEXT << "ROW "
+    std::cout << "Tile " << BLUE_TEXT << tileNumber << RESET_COLOUR
+              << " will be placed on board at " << GREEN_TEXT << "ROW "
               << RESET_COLOUR << rowNumber << YELLOW_TEXT << " COLUMN "
               << RESET_COLOUR << colNumber << std::endl;
     board->setTile(rowNumber, colNumber, playerTile2);
