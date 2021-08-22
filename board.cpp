@@ -19,7 +19,7 @@ Board::~Board() {}
 // expanding the board
 void Board::reSize() {
   int bsize = getSize();
-  // changes to MAX_BOARD_SIZE
+  // changed to MAX_BOARD_SIZE
   if (bsize < MAX_BOARD_SIZE) {
     for (int i = 0; i < getSize(); i++) {
       board[i].push_back(nullptr);
